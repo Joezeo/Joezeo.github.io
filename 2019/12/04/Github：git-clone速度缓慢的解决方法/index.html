@@ -17,7 +17,7 @@
 <meta property="og:description" content="1 问题背景 今天在使用Hexo搭建个人博客的过程中，需要下载主题Yilia，在从Github Clone安装的时候，下载速度非常缓慢，并且导致时间过长安装失败。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;VZOhw3E.png">
-<meta property="og:updated_time" content="2019-12-04T17:37:08.794Z">
+<meta property="og:updated_time" content="2019-12-04T19:18:32.316Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;VZOhw3E.png">
   
@@ -183,7 +183,7 @@
 <p>今天在使用Hexo搭建个人博客的过程中，需要下载主题Yilia，在从Github Clone安装的时候，下载速度非常缓慢，并且导致时间过长安装失败。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2 解决方法"></a>2 解决方法</h2><h3 id="2-1-所需工具"><a href="#2-1-所需工具" class="headerlink" title="2.1 所需工具"></a>2.1 所需工具</h3><blockquote>
+<h2 id="2-解决方法一：使用代理"><a href="#2-解决方法一：使用代理" class="headerlink" title="2 解决方法一：使用代理"></a>2 解决方法一：使用代理</h2><h3 id="2-1-所需工具"><a href="#2-1-所需工具" class="headerlink" title="2.1 所需工具"></a>2.1 所需工具</h3><blockquote>
 <p>ShadowsocksR代理<br>本地代理端口设置为：1080</p>
 </blockquote>
 <p><img src="https://i.imgur.com/VZOhw3E.png" alt=""> </p>
@@ -191,6 +191,9 @@
 <p><strong>取消全局代理</strong><br><code>git config --global --unset http.proxy</code><br><code>git config --global --unset https.proxy</code></p>
 <p><strong>注意：这里针对的是Https协议,并且要保证ss代理的本地端口设置的是1080,并且设置全局代理会影响国内仓库访问速度</strong>  </p>
 <h3 id="2-3-不设置全局代理，只针对Github进行代理（对国内仓库不影响，推荐）"><a href="#2-3-不设置全局代理，只针对Github进行代理（对国内仓库不影响，推荐）" class="headerlink" title="2.3 不设置全局代理，只针对Github进行代理（对国内仓库不影响，推荐）"></a>2.3 不设置全局代理，只针对Github进行代理（对国内仓库不影响，推荐）</h3><p><code>git config --global http.https://github.com.proxy https://127.0.0.1:1080</code><br><code>git config --global https.https://github.com.proxy https://127.0.0.1:1080</code></p>
+<h2 id="3-解决方法二：修改host映射"><a href="#3-解决方法二：修改host映射" class="headerlink" title="3 解决方法二：修改host映射"></a>3 解决方法二：修改host映射</h2><blockquote>
+<p>打开文件 C:\Windows\System32\drivers\etc\HOSTS<br>在文件里添加两个映射<br>192.30.253.113 github.com<br>151.101.109.194 github.global.ssl.fastly.Net</p>
+</blockquote>
 
       
 	  
