@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://Joezeo.com">
   <title>JAVA笔记：SSM项目中一些线程安全问题 | Joezeo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文发表在CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102978573 SpringMVC中的控制层的线程安全吗? 1.控制层对象默认是单例设计2.存在多线程共享数据集3.共享数据集上的操作是非原子操作">
+  <meta name="description" content="原文发表在CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102978573 SpringMVC中的控制层的线程安全吗? 1.控制层对象默认是单例设计（添加注解@Scope(“prototype”)可以让Controller成为多例）2.存在多线程共享数据集3.共享数据集上的操作是非原子操作">
 <meta name="keywords" content="Java笔记,SSM,线程安全">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA笔记：SSM项目中一些线程安全问题">
 <meta property="og:url" content="https:&#x2F;&#x2F;joezeo.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;JAVA%E7%AC%94%E8%AE%B0%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%B8%80%E4%BA%9B%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="Joezeo">
-<meta property="og:description" content="原文发表在CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102978573 SpringMVC中的控制层的线程安全吗? 1.控制层对象默认是单例设计2.存在多线程共享数据集3.共享数据集上的操作是非原子操作">
+<meta property="og:description" content="原文发表在CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102978573 SpringMVC中的控制层的线程安全吗? 1.控制层对象默认是单例设计（添加注解@Scope(“prototype”)可以让Controller成为多例）2.存在多线程共享数据集3.共享数据集上的操作是非原子操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-05T09:26:26.798Z">
+<meta property="og:updated_time" content="2019-12-06T06:02:43.702Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Joezeo" type="application/atom+xml">
@@ -221,7 +221,7 @@
       
         <p><strong>原文发表在CSDN：<a href="https://blog.csdn.net/Caramelsa/article/details/102978573" target="_blank" rel="noopener">https://blog.csdn.net/Caramelsa/article/details/102978573</a></strong></p>
 <h2 id="SpringMVC中的控制层的线程安全吗"><a href="#SpringMVC中的控制层的线程安全吗" class="headerlink" title="SpringMVC中的控制层的线程安全吗?"></a>SpringMVC中的控制层的线程安全吗?</h2><blockquote>
-<p>1.控制层对象默认是单例设计<br>2.存在多线程共享数据集<br>3.共享数据集上的操作是非原子操作</p>
+<p>1.控制层对象默认是单例设计（添加注解@Scope(“prototype”)可以让Controller成为多例）<br>2.存在多线程共享数据集<br>3.共享数据集上的操作是非原子操作</p>
 </blockquote>
 <a id="more"></a>
 <p><strong>满足以上三个条件时,SpringMVC就可能会出现线程不安全</strong></p>
@@ -553,15 +553,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Java笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">SSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">线程安全</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,7 +573,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">线程安全</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,6 +586,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">类加载</a>
               </li>
             
             <div class="clearfix"></div>

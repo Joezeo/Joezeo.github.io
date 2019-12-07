@@ -187,6 +187,97 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-JAVA笔记：类加载机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/07/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">JAVA笔记：类加载机制</a>
+    </h1>
+  
+
+		
+		<!--显示阅读次数-->
+		
+		
+        
+        <a href="/2019/12/07/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2019-12-06T16:22:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="java的类加载机制"><a href="#java的类加载机制" class="headerlink" title="java的类加载机制"></a>java的类加载机制</h2><blockquote>
+<p>JVM把class文件加载到内存，并对数据进行校验，解析和初始化，最终形成JVM可以直接使用的java类型的过程。<br>类的加载只进行一次  </p>
+</blockquote>
+        
+      
+	  
+	  
+		
+	
+	  <div class="declare" hidden="hidden"></div>
+	
+	
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Java笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">类加载</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/07/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-JAVA笔记：maven集成ssm项目所需Pom依赖及配置文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -313,7 +404,7 @@
       
         <p><strong>原文发表在CSDN：<a href="https://blog.csdn.net/Caramelsa/article/details/102978573" target="_blank" rel="noopener">https://blog.csdn.net/Caramelsa/article/details/102978573</a></strong></p>
 <h2 id="SpringMVC中的控制层的线程安全吗"><a href="#SpringMVC中的控制层的线程安全吗" class="headerlink" title="SpringMVC中的控制层的线程安全吗?"></a>SpringMVC中的控制层的线程安全吗?</h2><blockquote>
-<p>1.控制层对象默认是单例设计<br>2.存在多线程共享数据集<br>3.共享数据集上的操作是非原子操作</p>
+<p>1.控制层对象默认是单例设计（添加注解@Scope(“prototype”)可以让Controller成为多例）<br>2.存在多线程共享数据集<br>3.共享数据集上的操作是非原子操作</p>
 </blockquote>
         
       
@@ -862,15 +953,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Java笔记</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">SSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">线程安全</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -882,7 +973,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">线程安全</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -895,6 +986,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">反射</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">类加载</a>
               </li>
             
             <div class="clearfix"></div>
