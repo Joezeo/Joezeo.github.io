@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Joezeo.com">
-  <title>JAVA笔记：volatile与synchronized | Joezeo</title>
+  <title>JAVA 笔记：volatile 与 synchronized | Joezeo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文发表在CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;97939666 两个属性概念 1.原子性：一个操作不可以中途被CPU停止，要么不执行，要么执行完2.可见性：当一个变量的值在本地内存修改后立即在主存进行修改">
-<meta name="keywords" content="Java笔记,多线程,锁">
+  <meta name="description" content="原文发表在 CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;97939666 两个属性概念  原子性：一个操作不可以中途被 CPU 停止，要么不执行，要么执行完 可见性：当一个变量的值在本地内存修改后立即在主存进行修改">
+<meta name="keywords" content="Java笔记,多线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA笔记：volatile与synchronized">
+<meta property="og:title" content="JAVA 笔记：volatile 与 synchronized">
 <meta property="og:url" content="https:&#x2F;&#x2F;joezeo.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;JAVA%E7%AC%94%E8%AE%B0%EF%BC%9Avolatile%E4%B8%8Esynchronized&#x2F;index.html">
 <meta property="og:site_name" content="Joezeo">
-<meta property="og:description" content="原文发表在CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;97939666 两个属性概念 1.原子性：一个操作不可以中途被CPU停止，要么不执行，要么执行完2.可见性：当一个变量的值在本地内存修改后立即在主存进行修改">
+<meta property="og:description" content="原文发表在 CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;97939666 两个属性概念  原子性：一个操作不可以中途被 CPU 停止，要么不执行，要么执行完 可见性：当一个变量的值在本地内存修改后立即在主存进行修改">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-05T09:08:53.117Z">
+<meta property="og:updated_time" content="2019-12-08T18:08:10.369Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Joezeo" type="application/atom+xml">
@@ -194,7 +194,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JAVA笔记：volatile与synchronized
+      JAVA 笔记：volatile 与 synchronized
     </h1>
   
 
@@ -219,15 +219,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>原文发表在CSDN：<a href="https://blog.csdn.net/Caramelsa/article/details/97939666" target="_blank" rel="noopener">https://blog.csdn.net/Caramelsa/article/details/97939666</a></strong></p>
+        <!--PANGU_DISABLE-->
+<p><strong>原文发表在 CSDN：<a href="https://blog.csdn.net/Caramelsa/article/details/97939666" target="_blank" rel="noopener">https://blog.csdn.net/Caramelsa/article/details/97939666</a></strong></p>
 <h2 id="两个属性概念"><a href="#两个属性概念" class="headerlink" title="两个属性概念"></a>两个属性概念</h2><blockquote>
-<p>1.原子性：一个操作不可以中途被CPU停止，要么不执行，要么执行完<br>2.可见性：当一个变量的值在本地内存修改后立即在主存进行修改</p>
+<ol>
+<li>原子性：一个操作不可以中途被 CPU 停止，要么不执行，要么执行完</li>
+<li>可见性：当一个变量的值在本地内存修改后立即在主存进行修改</li>
+</ol>
 </blockquote>
 <a id="more"></a>
-<h2 id="volatile和synchronized的比较"><a href="#volatile和synchronized的比较" class="headerlink" title="volatile和synchronized的比较"></a>volatile和synchronized的比较</h2><blockquote>
-<p>1.volatile是线程同步轻量级实现，性能好（在JDK1.6后进行主要包括为了减少获得锁和释放锁带来的性能消耗而引入的偏向锁和轻量级锁）；<br>2.volatile只能用于变量，synchronized可用于方法、代码块；<br>3.多线程访问volatile关键字不会发生阻塞（故不能保证原子性），而synchronized会发生阻塞；<br>4.volatile只能保证数据的可见性，synchronized两者都可以保证。</p>
+<h2 id="volatile-和-synchronized-的比较"><a href="#volatile-和-synchronized-的比较" class="headerlink" title="volatile 和 synchronized 的比较"></a>volatile 和 synchronized 的比较</h2><blockquote>
+<p>1.volatile 是线程同步轻量级实现，性能好（在 JDK1.6 后进行主要包括为了减少获得锁和释放锁带来的性能消耗而引入的偏向锁和轻量级锁）；<br>2.volatile 只能用于变量，synchronized 可用于方法、代码块；<br>3. 多线程访问 volatile 关键字不会发生阻塞（故不能保证原子性），而 synchronized 会发生阻塞；<br>4.volatile 只能保证数据的可见性，synchronized 两者都可以保证。</p>
 </blockquote>
-<h2 id="synchronized相关"><a href="#synchronized相关" class="headerlink" title="synchronized相关"></a>synchronized相关</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	首先synchronized是对象锁，而不是把一段代码或方法当作锁</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">*/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(obj)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	<span class="comment">// synchronized同步块</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">	<span class="comment">// obj：同步监视器，一般使用共享资源的对象作为同步监视器</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	普通同步方法的同步监视器是this对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">*/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method_1</span><span class="params">()</span></span>&#123;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	静态同步方法的同步监视器是该类class对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="comment">*/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method_2</span><span class="params">()</span></span>&#123;&#125;</span></pre></td></tr></table></figure>
+<h2 id="synchronized-相关"><a href="#synchronized-相关" class="headerlink" title="synchronized 相关"></a>synchronized 相关</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	首先 synchronized 是对象锁，而不是把一段代码或方法当作锁</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"><span class="comment">*/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(obj)&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">	<span class="comment">// synchronized 同步块</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">	<span class="comment">// obj：同步监视器，一般使用共享资源的对象作为同步监视器</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	普通同步方法的同步监视器是 this 对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line"><span class="comment">*/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method_1</span><span class="params">()</span></span>&#123;&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line"><span class="comment">	静态同步方法的同步监视器是该类 class 对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line"><span class="comment">*/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method_2</span><span class="params">()</span></span>&#123;&#125;</span></pre></td></tr></table></figure>
 
       
 	  
@@ -302,10 +306,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">多线程</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">锁</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -378,14 +378,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JAVA笔记：对反射能够操作private修饰属性的理解
+          JAVA 笔记：对反射能够操作 private 修饰属性的理解
         
       </div>
     </a>
   
   
     <a href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA笔记：多线程基础知识</div>
+      <div class="article-nav-title">JAVA 笔记：多线程基础知识</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -412,7 +412,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#两个属性概念"><span class="toc-number">1.</span> <span class="toc-text">两个属性概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#volatile和synchronized的比较"><span class="toc-number">2.</span> <span class="toc-text">volatile和synchronized的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized相关"><span class="toc-number">3.</span> <span class="toc-text">synchronized相关</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#两个属性概念"><span class="toc-number">1.</span> <span class="toc-text">两个属性概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#volatile-和-synchronized-的比较"><span class="toc-number">2.</span> <span class="toc-text">volatile 和 synchronized 的比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#synchronized-相关"><span class="toc-number">3.</span> <span class="toc-text">synchronized 相关</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -548,14 +548,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">gitbash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Java笔记</a>
               </li>
              
@@ -568,11 +560,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">gitbash</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">锁</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,6 +573,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">

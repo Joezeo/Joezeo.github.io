@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Joezeo.com">
-  <title>Github：git clone速度缓慢的解决方法 | Joezeo</title>
+  <title>Github：git clone 速度缓慢的解决方法 | Joezeo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 问题背景 今天在使用Hexo搭建个人博客的过程中，在安装主题Yilia时，在从Github Clone的时候，下载速度非常缓慢，并且导致时间过长安装失败。">
+  <meta name="description" content="1 问题背景 今天在使用 Hexo 搭建个人博客的过程中，在安装主题 Yilia 时，在从 Github Clone 的时候，下载速度非常缓慢，并且导致时间过长安装失败。">
 <meta name="keywords" content="Github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Github：git clone速度缓慢的解决方法">
+<meta property="og:title" content="Github：git clone 速度缓慢的解决方法">
 <meta property="og:url" content="https:&#x2F;&#x2F;joezeo.com&#x2F;2019&#x2F;12&#x2F;04&#x2F;Github%EF%BC%9Agit-clone%E9%80%9F%E5%BA%A6%E7%BC%93%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="Joezeo">
-<meta property="og:description" content="1 问题背景 今天在使用Hexo搭建个人博客的过程中，在安装主题Yilia时，在从Github Clone的时候，下载速度非常缓慢，并且导致时间过长安装失败。">
+<meta property="og:description" content="1 问题背景 今天在使用 Hexo 搭建个人博客的过程中，在安装主题 Yilia 时，在从 Github Clone 的时候，下载速度非常缓慢，并且导致时间过长安装失败。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;VZOhw3E.png">
-<meta property="og:updated_time" content="2019-12-06T19:17:42.089Z">
+<meta property="og:updated_time" content="2019-12-08T18:07:39.109Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;VZOhw3E.png">
   
@@ -196,7 +196,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Github：git clone速度缓慢的解决方法
+      Github：git clone 速度缓慢的解决方法
     </h1>
   
 
@@ -221,19 +221,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-问题背景"><a href="#1-问题背景" class="headerlink" title="1 问题背景"></a>1 问题背景</h2><blockquote>
-<p>今天在使用Hexo搭建个人博客的过程中，在安装主题Yilia时，在从Github Clone的时候，下载速度非常缓慢，并且导致时间过长安装失败。</p>
+        <!--PANGU_DISABLE-->
+<h2 id="1-问题背景"><a href="#1-问题背景" class="headerlink" title="1 问题背景"></a>1 问题背景</h2><blockquote>
+<p>今天在使用 Hexo 搭建个人博客的过程中，在安装主题 Yilia 时，在从 Github Clone 的时候，下载速度非常缓慢，并且导致时间过长安装失败。</p>
 </blockquote>
 <a id="more"></a>
 <h2 id="2-解决方法一：使用代理"><a href="#2-解决方法一：使用代理" class="headerlink" title="2 解决方法一：使用代理"></a>2 解决方法一：使用代理</h2><h3 id="2-1-所需工具"><a href="#2-1-所需工具" class="headerlink" title="2.1 所需工具"></a>2.1 所需工具</h3><blockquote>
-<p>ShadowsocksR代理<br>本地代理端口设置为：1080</p>
+<p>ShadowsocksR 代理<br>本地代理端口设置为：1080</p>
 </blockquote>
-<p><img src="https://i.imgur.com/VZOhw3E.png" alt=""> </p>
-<h3 id="2-2-设置全局代理"><a href="#2-2-设置全局代理" class="headerlink" title="2.2 设置全局代理"></a>2.2 设置全局代理</h3><p><code>git config --global http.proxy http://127.0.0.1:1080</code><br><code>git config --global https.proxy https://127.0.0.1:1080</code> </p>
+<p><img src="https://i.imgur.com/VZOhw3E.png" alt=""></p>
+<h3 id="2-2-设置全局代理"><a href="#2-2-设置全局代理" class="headerlink" title="2.2 设置全局代理"></a>2.2 设置全局代理</h3><p><code>git config --global http.proxy http://127.0.0.1:1080</code><br><code>git config --global https.proxy https://127.0.0.1:1080</code></p>
 <p><strong>取消全局代理</strong><br><code>git config --global --unset http.proxy</code><br><code>git config --global --unset https.proxy</code></p>
-<p><strong>注意：这里针对的是Https协议,并且要保证ss代理的本地端口设置的是1080,并且设置全局代理会影响国内仓库访问速度</strong>  </p>
-<h3 id="2-3-不设置全局代理，只针对Github进行代理（对国内仓库不影响，推荐）"><a href="#2-3-不设置全局代理，只针对Github进行代理（对国内仓库不影响，推荐）" class="headerlink" title="2.3 不设置全局代理，只针对Github进行代理（对国内仓库不影响，推荐）"></a>2.3 不设置全局代理，只针对Github进行代理（对国内仓库不影响，推荐）</h3><p><code>git config --global http.https://github.com.proxy https://127.0.0.1:1080</code><br><code>git config --global https.https://github.com.proxy https://127.0.0.1:1080</code></p>
-<h2 id="3-解决方法二：修改host文件IP映射"><a href="#3-解决方法二：修改host文件IP映射" class="headerlink" title="3 解决方法二：修改host文件IP映射"></a>3 解决方法二：修改host文件IP映射</h2><blockquote>
+<p><strong>注意：这里针对的是 Https 协议，并且要保证 ss 代理的本地端口设置的是 1080, 并且设置全局代理会影响国内仓库访问速度</strong></p>
+<h3 id="2-3-不设置全局代理，只针对-Github-进行代理（对国内仓库不影响，推荐）"><a href="#2-3-不设置全局代理，只针对-Github-进行代理（对国内仓库不影响，推荐）" class="headerlink" title="2.3 不设置全局代理，只针对 Github 进行代理（对国内仓库不影响，推荐）"></a>2.3 不设置全局代理，只针对 Github 进行代理（对国内仓库不影响，推荐）</h3><p><code>git config --global http.https://github.com.proxy https://127.0.0.1:1080</code><br><code>git config --global https.https://github.com.proxy https://127.0.0.1:1080</code></p>
+<h2 id="3-解决方法二：修改-host-文件-IP-映射"><a href="#3-解决方法二：修改-host-文件-IP-映射" class="headerlink" title="3 解决方法二：修改 host 文件 IP 映射"></a>3 解决方法二：修改 host 文件 IP 映射</h2><blockquote>
 <p>打开文件 C:\Windows\System32\drivers\etc\HOSTS<br>在文件里添加两个映射<br>192.30.253.113 github.com<br>151.101.109.194 github.global.ssl.fastly.Net</p>
 </blockquote>
 
@@ -378,7 +379,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JAVA笔记：多线程基础知识
+          JAVA 笔记：多线程基础知识
         
       </div>
     </a>
@@ -407,7 +408,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-问题背景"><span class="toc-number">1.</span> <span class="toc-text">1 问题背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-解决方法一：使用代理"><span class="toc-number">2.</span> <span class="toc-text">2 解决方法一：使用代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-所需工具"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 所需工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-设置全局代理"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 设置全局代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-不设置全局代理，只针对Github进行代理（对国内仓库不影响，推荐）"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 不设置全局代理，只针对Github进行代理（对国内仓库不影响，推荐）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-解决方法二：修改host文件IP映射"><span class="toc-number">3.</span> <span class="toc-text">3 解决方法二：修改host文件IP映射</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-问题背景"><span class="toc-number">1.</span> <span class="toc-text">1 问题背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-解决方法一：使用代理"><span class="toc-number">2.</span> <span class="toc-text">2 解决方法一：使用代理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-所需工具"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 所需工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-设置全局代理"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 设置全局代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-不设置全局代理，只针对-Github-进行代理（对国内仓库不影响，推荐）"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 不设置全局代理，只针对 Github 进行代理（对国内仓库不影响，推荐）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-解决方法二：修改-host-文件-IP-映射"><span class="toc-number">3.</span> <span class="toc-text">3 解决方法二：修改 host 文件 IP 映射</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -543,14 +544,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">gitbash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Java笔记</a>
               </li>
              
@@ -563,11 +556,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">gitbash</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">锁</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,6 +569,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">

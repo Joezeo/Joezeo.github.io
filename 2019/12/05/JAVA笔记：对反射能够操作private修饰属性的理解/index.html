@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Joezeo.com">
-  <title>JAVA笔记：对反射能够操作private修饰属性的理解 | Joezeo</title>
+  <title>JAVA 笔记：对反射能够操作 private 修饰属性的理解 | Joezeo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文发表在CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102958265  Java提供private修饰属性时相当于给属性加了一把锁，避免人们直接访问其修饰的值">
+  <meta name="description" content="原文发表在 CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102958265  Java 提供 private 修饰属性时相当于给属性加了一把锁，避免人们直接访问其修饰的值">
 <meta name="keywords" content="Java笔记,反射">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA笔记：对反射能够操作private修饰属性的理解">
+<meta property="og:title" content="JAVA 笔记：对反射能够操作 private 修饰属性的理解">
 <meta property="og:url" content="https:&#x2F;&#x2F;joezeo.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%AF%B9%E5%8F%8D%E5%B0%84%E8%83%BD%E5%A4%9F%E6%93%8D%E4%BD%9Cprivate%E4%BF%AE%E9%A5%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E7%90%86%E8%A7%A3&#x2F;index.html">
 <meta property="og:site_name" content="Joezeo">
-<meta property="og:description" content="原文发表在CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102958265  Java提供private修饰属性时相当于给属性加了一把锁，避免人们直接访问其修饰的值">
+<meta property="og:description" content="原文发表在 CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102958265  Java 提供 private 修饰属性时相当于给属性加了一把锁，避免人们直接访问其修饰的值">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-05T09:16:06.735Z">
+<meta property="og:updated_time" content="2019-12-08T18:07:57.157Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Joezeo" type="application/atom+xml">
@@ -194,7 +194,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JAVA笔记：对反射能够操作private修饰属性的理解
+      JAVA 笔记：对反射能够操作 private 修饰属性的理解
     </h1>
   
 
@@ -219,13 +219,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>原文发表在CSDN：<a href="https://blog.csdn.net/Caramelsa/article/details/102958265" target="_blank" rel="noopener">https://blog.csdn.net/Caramelsa/article/details/102958265</a></strong></p>
+        <!--PANGU_DISABLE-->
+<p><strong>原文发表在 CSDN：<a href="https://blog.csdn.net/Caramelsa/article/details/102958265" target="_blank" rel="noopener">https://blog.csdn.net/Caramelsa/article/details/102958265</a></strong></p>
 <ol>
-<li><p><code>Java提供private修饰属性时相当于给属性加了一把锁，避免人们直接访问其修饰的值</code></p>
+<li><p><code>Java 提供 private 修饰属性时相当于给属性加了一把锁，避免人们直接访问其修饰的值</code></p>
 <a id="more"></a></li>
-<li><p><code>相应的，Java提供了两把钥匙来打开这把锁</code><br><code>静态：set/get方法</code><br><code>动态：反射</code></p>
+<li><p><code>相应的，Java 提供了两把钥匙来打开这把锁</code><br><code>静态：set/get 方法</code><br><code>动态：反射</code></p>
 </li>
-<li><p><code>在set方法中，程序员可以编写代码对要设置的值进行限定，相应的在反射程序员也可以编写代码对要设置的值进行限定，在反射中操作private修饰的属性，需设置setAccess(true)，其目的也是提示程序员正在操作的值是private</code></p>
+<li><p><code>在 set 方法中，程序员可以编写代码对要设置的值进行限定，相应的在反射程序员也可以编写代码对要设置的值进行限定，在反射中操作 private 修饰的属性，需设置 setAccess(true)，其目的也是提示程序员正在操作的值是 private</code></p>
 </li>
 </ol>
 
@@ -374,14 +375,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JAVA笔记：SSM项目中一些线程安全问题
+          JAVA 笔记：SSM 项目中一些线程安全问题
         
       </div>
     </a>
   
   
     <a href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9Avolatile%E4%B8%8Esynchronized/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA笔记：volatile与synchronized</div>
+      <div class="article-nav-title">JAVA 笔记：volatile 与 synchronized</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -544,14 +545,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">gitbash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Java笔记</a>
               </li>
              
@@ -564,11 +557,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">gitbash</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">锁</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,6 +570,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">

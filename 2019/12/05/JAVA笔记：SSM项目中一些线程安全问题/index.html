@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Joezeo.com">
-  <title>JAVA笔记：SSM项目中一些线程安全问题 | Joezeo</title>
+  <title>JAVA 笔记：SSM 项目中一些线程安全问题 | Joezeo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文发表在CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102978573 SpringMVC中的控制层的线程安全吗? 1.控制层对象默认是单例设计（添加注解@Scope(“prototype”)可以让Controller成为多例）2.存在多线程共享数据集3.共享数据集上的操作是非原子操作">
+  <meta name="description" content="原文发表在 CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102978573 SpringMVC 中的控制层的线程安全吗？  控制层对象默认是单例设计（添加注解 @Scope(“prototype”) 可以让 Controller 成为多例） 存在多线程共享数据集 共享数据集上的操作是非原子操作">
 <meta name="keywords" content="Java笔记,SSM,线程安全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA笔记：SSM项目中一些线程安全问题">
+<meta property="og:title" content="JAVA 笔记：SSM 项目中一些线程安全问题">
 <meta property="og:url" content="https:&#x2F;&#x2F;joezeo.com&#x2F;2019&#x2F;12&#x2F;05&#x2F;JAVA%E7%AC%94%E8%AE%B0%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%B8%80%E4%BA%9B%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="Joezeo">
-<meta property="og:description" content="原文发表在CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102978573 SpringMVC中的控制层的线程安全吗? 1.控制层对象默认是单例设计（添加注解@Scope(“prototype”)可以让Controller成为多例）2.存在多线程共享数据集3.共享数据集上的操作是非原子操作">
+<meta property="og:description" content="原文发表在 CSDN：https:&#x2F;&#x2F;blog.csdn.net&#x2F;Caramelsa&#x2F;article&#x2F;details&#x2F;102978573 SpringMVC 中的控制层的线程安全吗？  控制层对象默认是单例设计（添加注解 @Scope(“prototype”) 可以让 Controller 成为多例） 存在多线程共享数据集 共享数据集上的操作是非原子操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-06T06:02:43.702Z">
+<meta property="og:updated_time" content="2019-12-08T18:08:14.084Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Joezeo" type="application/atom+xml">
@@ -194,7 +194,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JAVA笔记：SSM项目中一些线程安全问题
+      JAVA 笔记：SSM 项目中一些线程安全问题
     </h1>
   
 
@@ -219,23 +219,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>原文发表在CSDN：<a href="https://blog.csdn.net/Caramelsa/article/details/102978573" target="_blank" rel="noopener">https://blog.csdn.net/Caramelsa/article/details/102978573</a></strong></p>
-<h2 id="SpringMVC中的控制层的线程安全吗"><a href="#SpringMVC中的控制层的线程安全吗" class="headerlink" title="SpringMVC中的控制层的线程安全吗?"></a>SpringMVC中的控制层的线程安全吗?</h2><blockquote>
-<p>1.控制层对象默认是单例设计（添加注解@Scope(“prototype”)可以让Controller成为多例）<br>2.存在多线程共享数据集<br>3.共享数据集上的操作是非原子操作</p>
+        <!--PANGU_DISABLE-->
+<p><strong>原文发表在 CSDN：<a href="https://blog.csdn.net/Caramelsa/article/details/102978573" target="_blank" rel="noopener">https://blog.csdn.net/Caramelsa/article/details/102978573</a></strong></p>
+<h2 id="SpringMVC-中的控制层的线程安全吗？"><a href="#SpringMVC-中的控制层的线程安全吗？" class="headerlink" title="SpringMVC 中的控制层的线程安全吗？"></a>SpringMVC 中的控制层的线程安全吗？</h2><blockquote>
+<ol>
+<li>控制层对象默认是单例设计（添加注解 @Scope(“prototype”) 可以让 Controller 成为多例）</li>
+<li>存在多线程共享数据集</li>
+<li>共享数据集上的操作是非原子操作</li>
+</ol>
 </blockquote>
 <a id="more"></a>
-<p><strong>满足以上三个条件时,SpringMVC就可能会出现线程不安全</strong></p>
+<p><strong>满足以上三个条件时，SpringMVC 就可能会出现线程不安全</strong></p>
 <h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><blockquote>
-<p>1.SimpleDateFormat对象是一个线程安全对象吗?<br>不是  </p>
+<p>1.SimpleDateFormat 对象是一个线程安全对象吗？<br>不是</p>
 </blockquote>
 <blockquote>
-<p>2.SimpleDateFormat对象如何保证在SSM项目中是安全的.<br>2.1 每次使用都创建新的对象(一般在方法内部定义并创建)<br>2.2 多线程共享一个SimpleDateFormat对象,然后借助synchronized关键字保证线程安全<br>2.3 每个线程一个SimpleDateFormat对象,借助ThreadLocal对象实现</p>
+<p>2.SimpleDateFormat 对象如何保证在 SSM 项目中是安全的。<br>2.1 每次使用都创建新的对象（一般在方法内部定义并创建）<br>2.2 多线程共享一个 SimpleDateFormat 对象，然后借助 synchronized 关键字保证线程安全<br>2.3 每个线程一个 SimpleDateFormat 对象，借助 ThreadLocal 对象实现</p>
 </blockquote>
-<h2 id="ThreadLocal说明"><a href="#ThreadLocal说明" class="headerlink" title="ThreadLocal说明"></a>ThreadLocal说明</h2><blockquote>
-<p>ThreadLocal 类提供了这样一种机制,能够将某个对象绑定(set)到当前线程,也能构从当前线程获取(get)某个对象,不需要了,还可以从当前线程移除(remove)这个对象.</p>
+<h2 id="ThreadLocal-说明"><a href="#ThreadLocal-说明" class="headerlink" title="ThreadLocal 说明"></a>ThreadLocal 说明</h2><blockquote>
+<p>ThreadLocal 类提供了这样一种机制，能够将某个对象绑定 (set) 到当前线程，也能构从当前线程获取 (get) 某个对象，不需要了，还可以从当前线程移除 (remove) 这个对象。</p>
 </blockquote>
 <h2 id="FAQ-1"><a href="#FAQ-1" class="headerlink" title="FAQ"></a>FAQ</h2><blockquote>
-<p>1.JDBC项目中的Connection对象可以共享吗?<br>1.1 不可以,会存在线程安全问题<br>1.2 如何保证线程安全呢?(借助ThreadLocal实现每个线程一个Connection.</p>
+<p>1.JDBC 项目中的 Connection 对象可以共享吗？<br>1.1 不可以，会存在线程安全问题<br>1.2 如何保证线程安全呢？（借助 ThreadLocal 实现每个线程一个 Connection.</p>
 </blockquote>
 
       
@@ -387,14 +392,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JAVA笔记：maven集成ssm项目所需Pom依赖及配置文件
+          JAVA 笔记：maven 集成 ssm 项目所需 Pom 依赖及配置文件
         
       </div>
     </a>
   
   
     <a href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%AF%B9%E5%8F%8D%E5%B0%84%E8%83%BD%E5%A4%9F%E6%93%8D%E4%BD%9Cprivate%E4%BF%AE%E9%A5%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E7%90%86%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA笔记：对反射能够操作private修饰属性的理解</div>
+      <div class="article-nav-title">JAVA 笔记：对反射能够操作 private 修饰属性的理解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -421,7 +426,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringMVC中的控制层的线程安全吗"><span class="toc-number">1.</span> <span class="toc-text">SpringMVC中的控制层的线程安全吗?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAQ"><span class="toc-number">2.</span> <span class="toc-text">FAQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ThreadLocal说明"><span class="toc-number">3.</span> <span class="toc-text">ThreadLocal说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAQ-1"><span class="toc-number">4.</span> <span class="toc-text">FAQ</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringMVC-中的控制层的线程安全吗？"><span class="toc-number">1.</span> <span class="toc-text">SpringMVC 中的控制层的线程安全吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAQ"><span class="toc-number">2.</span> <span class="toc-text">FAQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ThreadLocal-说明"><span class="toc-number">3.</span> <span class="toc-text">ThreadLocal 说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAQ-1"><span class="toc-number">4.</span> <span class="toc-text">FAQ</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -557,14 +562,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">gitbash</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Java笔记</a>
               </li>
              
@@ -577,11 +574,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">多线程</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">gitbash</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">锁</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,6 +587,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
