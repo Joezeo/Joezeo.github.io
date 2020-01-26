@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Joezeo.com">
-  <title>JAVA笔记：HashMap | Joezeo</title>
+  <title>Linux笔记：快速入门 | Joezeo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HashMap哈希表简介 核心是基于哈希值的桶和链表哈希桶：基于哈希值 hashCode 的容器，是一个数组，数组的随机查询时间复杂度为 O(1)。   hash碰撞：hash 值相同就会发生 hash 碰撞">
-<meta name="keywords" content="Java笔记,HashMap">
+  <meta name="description" content="Linux系统目录介绍在公司中linux都是没有界面.系统路径 1 &#x2F; 表示根目录     2 ~ 表示&#x2F;root     3 etc 存放系统配置目录.">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA笔记：HashMap">
-<meta property="og:url" content="https:&#x2F;&#x2F;joezeo.com&#x2F;2020&#x2F;01&#x2F;18&#x2F;JAVA%E7%AC%94%E8%AE%B0%EF%BC%9AHashMap&#x2F;index.html">
+<meta property="og:title" content="Linux笔记：快速入门">
+<meta property="og:url" content="https:&#x2F;&#x2F;joezeo.com&#x2F;2020&#x2F;01&#x2F;26&#x2F;Linux%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8&#x2F;index.html">
 <meta property="og:site_name" content="Joezeo">
-<meta property="og:description" content="HashMap哈希表简介 核心是基于哈希值的桶和链表哈希桶：基于哈希值 hashCode 的容器，是一个数组，数组的随机查询时间复杂度为 O(1)。   hash碰撞：hash 值相同就会发生 hash 碰撞">
+<meta property="og:description" content="Linux系统目录介绍在公司中linux都是没有界面.系统路径 1 &#x2F; 表示根目录     2 ~ 表示&#x2F;root     3 etc 存放系统配置目录.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-18T15:33:54.000Z">
+<meta property="og:updated_time" content="2020-01-26T10:30:48.000Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Joezeo" type="application/atom+xml">
@@ -187,14 +187,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JAVA笔记：HashMap" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Linux笔记：快速入门" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JAVA笔记：HashMap
+      Linux笔记：快速入门
     </h1>
   
 
@@ -211,50 +211,220 @@
 		  
 		
         
-        <a href="/2020/01/18/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9AHashMap/" class="archive-article-date">
-  	<time datetime="2020-01-18T15:22:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
+        <a href="/2020/01/26/Linux%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2020-01-26T09:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!--PANGU_DISABLE-->
-<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><h3 id="哈希表简介"><a href="#哈希表简介" class="headerlink" title="哈希表简介"></a>哈希表简介</h3><blockquote>
-<p>核心是基于哈希值的桶和链表<br>哈希桶：基于哈希值 hashCode 的容器，是一个数组，数组的随机查询时间复杂度为 O(1)。</p>
+        <h2 id="Linux系统目录介绍"><a href="#Linux系统目录介绍" class="headerlink" title="Linux系统目录介绍"></a>Linux系统目录介绍</h2><h3 id="在公司中linux都是没有界面"><a href="#在公司中linux都是没有界面" class="headerlink" title="在公司中linux都是没有界面."></a>在公司中linux都是没有界面.</h3><h3 id="系统路径"><a href="#系统路径" class="headerlink" title="系统路径"></a>系统路径</h3><blockquote>
+<p>1 / 表示根目录  </p>
 </blockquote>
 <blockquote>
-<p>hash碰撞：hash 值相同就会发生 hash 碰撞</p>
+<p>2 ~ 表示/root  </p>
+</blockquote>
+<blockquote>
+<p>3 etc 存放系统配置目录.  </p>
 </blockquote>
 <a id="more"></a>
-<h3 id="Java7-HashMap-经典实现-数组加链表"><a href="#Java7-HashMap-经典实现-数组加链表" class="headerlink" title="Java7 HashMap 经典实现 - 数组加链表"></a>Java7 HashMap 经典实现 - 数组加链表</h3><ol>
-<li>默认的初始化长度必须是 2 的幂（默认是 16, 即有 16 个哈希桶，下标 0-15）</li>
-<li>只有第一次往容器里放数据时才会开辟内存空间</li>
-<li>默认负载因子是 0.75，即容量超过 3/4 被使用时执行扩容，容量是原来的两倍。</li>
-<li>扩容时，重新计算所有内容的 hash 值。<br>然后进行 transfer 操作（一切问题的根源）。tansfer all entries from current table to newTable.</li>
-</ol>
-<h4 id="如何根据-hash-值生成容器的索引呢？"><a href="#如何根据-hash-值生成容器的索引呢？" class="headerlink" title="如何根据 hash 值生成容器的索引呢？"></a>如何根据 hash 值生成容器的索引呢？</h4><p>我们知道如果一共有 n 个容器，那么容器的索引是 0~n-1</p>
-<ol>
-<li><p>要把 int i —-&gt; n-1 怎么做？<br>i%n<br>但是这样做有两个缺点<br>一是速度慢，二是负数取余依旧是负数</p>
-</li>
-<li><p>java7 中的 hashMap 是这样做的<br>hash &amp; (length-1)<br>为了保证 length-1 的二进制码全部位都是 1，所以 HashMap 的初始化长度必须是 2 的幂（如果通过构造函数传入的初始化长度不是 2 的幂，HashMap 会自动向上取 2 的幂）</p>
-</li>
-</ol>
-<h4 id="Java7-HashMap-会遇到的问题"><a href="#Java7-HashMap-会遇到的问题" class="headerlink" title="Java7 HashMap 会遇到的问题"></a>Java7 HashMap 会遇到的问题</h4><ol>
-<li>非常容易遇到死锁，HashMap 线程不安全。</li>
-<li>最致命的缺陷就是 hash 碰撞。</li>
-<li>可以通过精心构造的 httpRequest 对服务器进行攻击（构造一些数据使它们的 hash 值相同），造成 Dos（Deniy of service），使 hashMap 退化成链表。</li>
-</ol>
-<h3 id="Java8-对-HashMap-的改进"><a href="#Java8-对-HashMap-的改进" class="headerlink" title="Java8 对 HashMap 的改进"></a>Java8 对 HashMap 的改进</h3><ol>
-<li>数组 + 链表 / 红黑树</li>
-<li>扩容时，插入顺序改进，保持顺序，尽量避免死循环，但是依旧线程不安全。</li>
-</ol>
-<p>TREEIFY_THRESHOLD=8 当 hash 桶里是链表时，超过了 8 个元素就把链表转化成为红黑树<br>为什么是 8 ? 因为根据泊松分布，每个桶超过 8 的概率已经很小了。</p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><blockquote>
-<p>tips:^ 异或，可以理解为不进位的加法</p>
+
+<blockquote>
+<p>4 home 除了root以为所有用户默认在home下新建一个以用户名做为文件夹名称的文件夹<br>    4.1 用户xxx对/home/xxx具有完全操作权限.  </p>
 </blockquote>
 <blockquote>
-<p>HashMap 允许任何类型的键和对象，并允许将 null 作为键和对象。<br>但是由于无法调用 null 的 hashCode() 方法，也就无法确定它的哈希桶的下标，只能强制指定一个桶来存放，HashMap 使用下标为 0 的桶存储键为 null 的键值对。</p>
+<p>5 root 用户root单独文件夹  </p>
+</blockquote>
+<blockquote>
+<p>6 usr 所有用户安装的软件都放入到这个文件夹中<br>    6.1 在usr/local下新建一个tmp,所有压缩包都上传到tmp中.  </p>
+</blockquote>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令:"></a>常用命令:</h3><blockquote>
+<p>1 pwd 打印工作目录,当前所有文件夹全路径  </p>
+</blockquote>
+<blockquote>
+<p>2 cd 进入到文件夹<br>    2.1 cd ..   向上跳一级文件夹<br>    2.2 cd  路径  进入指定文件夹  </p>
+</blockquote>
+<blockquote>
+<p>3 mkdir 新建空文件夹  </p>
+</blockquote>
+<blockquote>
+<p>4 ls 平铺    ll 详细列表  </p>
+</blockquote>
+<blockquote>
+<p>5 vi 和 vim 都是编辑文件<br>5.1 如果文件不存在,带有创建文件功能<br>5.2 vi 普通编辑   vim 高级编辑(带有颜色)<br>5.3 进入到编辑器后非可编辑状态,点击”i”或”insert”启用编辑状态<br>5.4 编辑后点击”esc”退出编辑状态,输入<br> :wq 保存并退出<br> :q 不保存退出(适用于没有编辑时)<br> :q! 强制退出  </p>
+</blockquote>
+<blockquote>
+<p>6 touch 创建空文件.  </p>
+</blockquote>
+<blockquote>
+<p>7 cat 查看文件全部内容  </p>
+</blockquote>
+<blockquote>
+<p>8 head [-n] 文件名 查看文件前n行,默认前10行  </p>
+</blockquote>
+<blockquote>
+<p>9 tail [-n] 文件名  查看文件后n]行,默认后10行.<br>9.1 tailf 动态显示文件后n行内容.常用在显示tomcat日志文件功能.  </p>
+</blockquote>
+<blockquote>
+<p>10 echo ‘内容’ &gt;&gt; 文件名   向文件中添加一些内容.  </p>
+</blockquote>
+<blockquote>
+<p>11 ifconfig 打印网卡信息.  </p>
+</blockquote>
+<blockquote>
+<p>12 reboot 重启.  </p>
+</blockquote>
+<blockquote>
+<p>13 tar zxvf 文件名  </p>
+</blockquote>
+<blockquote>
+<p>14 cp [-r] 原文件   新文件路径    : 复制文件<br>14.1 -r 复制文件夹  </p>
+</blockquote>
+<blockquote>
+<p>15 ctrl+C  中断  </p>
+</blockquote>
+<blockquote>
+<p>16 mv 原文件  新文件    : 剪切(具备重命名功能  </p>
+</blockquote>
+<blockquote>
+<p>17 rm [-rf] 文件名    : 删除<br>17.1 -r 删除目录<br>17.2 -f 强制删除,不需要确认.  </p>
+</blockquote>
+<blockquote>
+<p>18 clear 清屏</p>
+</blockquote>
+<h3 id="不同用户登录效果"><a href="#不同用户登录效果" class="headerlink" title="不同用户登录效果"></a>不同用户登录效果</h3><p>普通用户:命令以$开头<br>root用户:命令以#开头</p>
+<h3 id="linux所有需要写路径的地方支持两种写法"><a href="#linux所有需要写路径的地方支持两种写法" class="headerlink" title="linux所有需要写路径的地方支持两种写法"></a>linux所有需要写路径的地方支持两种写法</h3><p>全路径,标志:以/开头<br>相对路径:从当前资源一步一步寻找其他资源过程</p>
+<hr>
+<hr>
+<h2 id="安装Java-JDK"><a href="#安装Java-JDK" class="headerlink" title="安装Java JDK"></a>安装Java JDK</h2><h3 id="1-把压缩包上传到服务器-usr-local-tmp"><a href="#1-把压缩包上传到服务器-usr-local-tmp" class="headerlink" title="1. 把压缩包上传到服务器/usr/local/tmp"></a>1. 把压缩包上传到服务器/usr/local/tmp</h3><h3 id="2-解压压缩包"><a href="#2-解压压缩包" class="headerlink" title="2. 解压压缩包"></a>2. 解压压缩包</h3><blockquote>
+<p># tar zxvf 文件名</p>
+</blockquote>
+<h3 id="3-把解压后文件复制到-usr-local-jdk"><a href="#3-把解压后文件复制到-usr-local-jdk" class="headerlink" title="3. 把解压后文件复制到/usr/local/jdk"></a>3. 把解压后文件复制到/usr/local/jdk</h3><blockquote>
+<p># cp -r 文件名 /usr/local/jdk</p>
+</blockquote>
+<h3 id="4-配置环境变量-执行命令"><a href="#4-配置环境变量-执行命令" class="headerlink" title="4. 配置环境变量,执行命令"></a>4. 配置环境变量,执行命令</h3><blockquote>
+<p># vim /etc/profile</p>
+</blockquote>
+<h3 id="5-修改-profile-文件中内容"><a href="#5-修改-profile-文件中内容" class="headerlink" title="5. 修改 profile 文件中内容"></a>5. 修改 profile 文件中内容</h3><p>5.1 分割使用冒号<br>5.2 $变量名表示引用<br>5.3 export 添加或修改变量</p>
+<blockquote>
+<p>export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL<br>export JAVA_HOME=/usr/local/jdk<br>export PATH=$JAVA_HOME/bin:$PATH<br>export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</p>
+</blockquote>
+<h3 id="6-解析文件-或重启系统"><a href="#6-解析文件-或重启系统" class="headerlink" title="6. 解析文件(或重启系统)"></a>6. 解析文件(或重启系统)</h3><blockquote>
+<p># source /etc/profile</p>
+</blockquote>
+<h3 id="7-验证配置是否成功"><a href="#7-验证配置是否成功" class="headerlink" title="7. 验证配置是否成功"></a>7. 验证配置是否成功</h3><blockquote>
+<p># java -version</p>
+</blockquote>
+<hr>
+<hr>
+<h2 id="Tomcat-配置"><a href="#Tomcat-配置" class="headerlink" title="Tomcat 配置"></a>Tomcat 配置</h2><p><strong>这里使用压缩包的方式安装，也可以使用在线下载</strong></p>
+<h3 id="1-把tomcat压缩包上传到服务器"><a href="#1-把tomcat压缩包上传到服务器" class="headerlink" title="1. 把tomcat压缩包上传到服务器"></a>1. 把tomcat压缩包上传到服务器</h3><h3 id="2-解压tomcat"><a href="#2-解压tomcat" class="headerlink" title="2. 解压tomcat"></a>2. 解压tomcat</h3><blockquote>
+<p># tar zxvf 压缩包名</p>
+</blockquote>
+<h3 id="3-解压后的文件夹复制到-usr-local-tomcat"><a href="#3-解压后的文件夹复制到-usr-local-tomcat" class="headerlink" title="3. 解压后的文件夹复制到/usr/local/tomcat"></a>3. 解压后的文件夹复制到/usr/local/tomcat</h3><blockquote>
+<p># cp -r apache-tomcat-7.0.68 /usr/local/tomcat</p>
+</blockquote>
+<h3 id="4-配置环境变量"><a href="#4-配置环境变量" class="headerlink" title="4. 配置环境变量"></a>4. 配置环境变量</h3><blockquote>
+<p># vim /etc/profile<br>添加内容<br>export TOMCAT_HOME=/usr/local/tomcat<br>export CATALINA_HOME=/usr/local/tomcat</p>
+</blockquote>
+<h3 id="5-iptables-放行8080端口"><a href="#5-iptables-放行8080端口" class="headerlink" title="5. iptables 放行8080端口"></a>5. iptables 放行8080端口</h3><blockquote>
+<p># vim  /etc/sysconfig/iptables </p>
+</blockquote>
+<p>5.1 重启服务:</p>
+<blockquote>
+<p># service iptables restart<br>5.1.1 restart 重启<br>5.1.2 start 启动<br>5.1.3 stop 停止</p>
+</blockquote>
+<h3 id="6-启动tomcat-进入到tomcat-bin文件夹"><a href="#6-启动tomcat-进入到tomcat-bin文件夹" class="headerlink" title="6. 启动tomcat,进入到tomcat/bin文件夹"></a>6. 启动tomcat,进入到tomcat/bin文件夹</h3><p>6.1 直接启动</p>
+<blockquote>
+<p># ./startup.sh  </p>
+</blockquote>
+<p>6.2 启动并动态打印启动信息</p>
+<blockquote>
+<p># ./startup.sh &amp; tailf /usr/local/tomcat/logs/catalina.out</p>
+</blockquote>
+<hr>
+<hr>
+<h2 id="MySql-配置"><a href="#MySql-配置" class="headerlink" title="MySql 配置"></a>MySql 配置</h2><p><strong>CentOS上安装MySql官方推荐使用rpm在线安装的方式进行安装。</strong></p>
+<h3 id="创建用户组和用户"><a href="#创建用户组和用户" class="headerlink" title="创建用户组和用户"></a>创建用户组和用户</h3><p>root用户是最高权限用户，所以一般都是创建用户和用户组，放置最高权限用户进行MySql操作。</p>
+<ol>
+<li>添加用户组，命名为mysql<blockquote>
+<p>命令：groupadd mysql</p>
+</blockquote>
+</li>
+<li>创建用户mysql，并指定所属群组为mysql<blockquote>
+<p>命令：useradd -r  -g mysql mysql</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="赋权，让用户组和用户具有操作权限"><a href="#赋权，让用户组和用户具有操作权限" class="headerlink" title="赋权，让用户组和用户具有操作权限"></a>赋权，让用户组和用户具有操作权限</h3><p><strong>注意：</strong><br><strong>下面命令中有 . 表示本级目录</strong><br><strong>一定要保证当前所在文件夹是/usr/local/mysql中</strong><br>变更mysql用户组有操作当前文件夹的权限</p>
+<blockquote>
+<p>命令：chgrp  -R mysql .    </p>
+</blockquote>
+<p>变更mysql用户具有操作本级目录的权限。</p>
+<blockquote>
+<p>命令：chown –R mysql .    </p>
+</blockquote>
+<p>上面两个命令也可以换成下面一条命令</p>
+<blockquote>
+<p>chown -R mysql:mysql ./  </p>
+</blockquote>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p><strong>以下命令需要保证在/usr/local/mysql下</strong><br>判断/etc/my.cnf是否存在，如果存在删除</p>
+<blockquote>
+<p>命令：ls /etc/my.cnf  </p>
+</blockquote>
+<p>如果存在执行下面命令，如果不存在，跳过此步骤</p>
+<blockquote>
+<p>命令： rm /etc/my.cnf  </p>
+</blockquote>
+<p>初始化数据库</p>
+<blockquote>
+<p>命令：./scripts/mysql_install_db –user=mysql  </p>
+</blockquote>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p><strong>配置my.cnf和启动文件，根据自己的需要进行修改。如果不需要特殊操作，可以直接复制.</strong><br><strong>以下命令依然需要保证目前在mysql文件夹下</strong></p>
+<p>复制my.cnf文件</p>
+<blockquote>
+<p>命令：cp support-files/my-default.cnf /etc/my.cnf  </p>
+</blockquote>
+<p>复制启动文件</p>
+<blockquote>
+<p>命令：cp support-files/mysql.server /etc/rc.d/init.d/mysql  </p>
+</blockquote>
+<h3 id="启动、重启、关闭mysql服务"><a href="#启动、重启、关闭mysql服务" class="headerlink" title="启动、重启、关闭mysql服务"></a>启动、重启、关闭mysql服务</h3><p>启动mysql服务：</p>
+<blockquote>
+<p>命令：service mysql start  </p>
+</blockquote>
+<p>关闭服务：</p>
+<blockquote>
+<p>命令：service mysql stop  </p>
+</blockquote>
+<p>重启服务：</p>
+<blockquote>
+<p>命令：service mysql restart  </p>
+</blockquote>
+<h3 id="操作mysql数据库"><a href="#操作mysql数据库" class="headerlink" title="操作mysql数据库"></a>操作mysql数据库</h3><p>如果以上的配置都正确执行，可以直接输入mysql进入到mysql编辑模式</p>
+<blockquote>
+<p>命令：mysql –u root –p  </p>
+</blockquote>
+<p>会提示要求输入密码<br>如果提示没有mysql命令，需要添加软连接</p>
+<blockquote>
+<p>ln -s /usr/local/mysql/bin/mysql /usr/bin/mysql  </p>
+</blockquote>
+<h3 id="使其他用户具有访问数据库的权限"><a href="#使其他用户具有访问数据库的权限" class="headerlink" title="使其他用户具有访问数据库的权限"></a>使其他用户具有访问数据库的权限</h3><p>进入mysql命令行</p>
+<blockquote>
+<p>mysql -u root -p  </p>
+</blockquote>
+<p>执行权限赋予命令</p>
+<blockquote>
+<p>GRANT ALL PRIVILEGES ON <em>.</em> TO ‘root’@’%’ IDENTIFIED BY ‘smallming’ WITH GRANT OPTION;  </p>
+</blockquote>
+<p>刷新权限</p>
+<blockquote>
+<p>flush privileges;  </p>
+</blockquote>
+<p><strong>iptables 放行3306端口</strong></p>
+<blockquote>
+<p># vim  /etc/sysconfig/iptables </p>
 </blockquote>
 
       
@@ -269,7 +439,7 @@
 		
 		<br>
 		<strong>本文链接：</strong>
-		https://joezeo.com/2020/01/18/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9AHashMap/
+		https://joezeo.com/2020/01/26/Linux%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/
 		<br>
 		<strong>版权声明：</strong>
 		本作品采用
@@ -324,11 +494,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Java笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">HashMap</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -384,7 +550,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://joezeo.com/2020/01/18/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9AHashMap/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://joezeo.com/2020/01/26/Linux%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -398,18 +564,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/21/SpringBot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SpringBoot学习笔记：异常处理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/15/Springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%88%9D%E8%AF%86Springboot/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SpringBoot学习笔记：初识SpringBoot</div>
+    <a href="/2020/01/24/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9AStream%E6%B5%81%E6%9C%BA%E5%88%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA 笔记：Stream 流机制</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -436,7 +593,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HashMap"><span class="toc-number">1.</span> <span class="toc-text">HashMap</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#哈希表简介"><span class="toc-number">1.1.</span> <span class="toc-text">哈希表简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java7-HashMap-经典实现-数组加链表"><span class="toc-number">1.2.</span> <span class="toc-text">Java7 HashMap 经典实现 - 数组加链表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何根据-hash-值生成容器的索引呢？"><span class="toc-number">1.2.1.</span> <span class="toc-text">如何根据 hash 值生成容器的索引呢？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Java7-HashMap-会遇到的问题"><span class="toc-number">1.2.2.</span> <span class="toc-text">Java7 HashMap 会遇到的问题</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java8-对-HashMap-的改进"><span class="toc-number">1.3.</span> <span class="toc-text">Java8 对 HashMap 的改进</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充"><span class="toc-number">2.</span> <span class="toc-text">补充</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux系统目录介绍"><span class="toc-number">1.</span> <span class="toc-text">Linux系统目录介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在公司中linux都是没有界面"><span class="toc-number">1.1.</span> <span class="toc-text">在公司中linux都是没有界面.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#系统路径"><span class="toc-number">1.2.</span> <span class="toc-text">系统路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-number">1.3.</span> <span class="toc-text">常用命令:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不同用户登录效果"><span class="toc-number">1.4.</span> <span class="toc-text">不同用户登录效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux所有需要写路径的地方支持两种写法"><span class="toc-number">1.5.</span> <span class="toc-text">linux所有需要写路径的地方支持两种写法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Java-JDK"><span class="toc-number">2.</span> <span class="toc-text">安装Java JDK</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-把压缩包上传到服务器-usr-local-tmp"><span class="toc-number">2.1.</span> <span class="toc-text">1. 把压缩包上传到服务器/usr/local/tmp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-解压压缩包"><span class="toc-number">2.2.</span> <span class="toc-text">2. 解压压缩包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-把解压后文件复制到-usr-local-jdk"><span class="toc-number">2.3.</span> <span class="toc-text">3. 把解压后文件复制到/usr/local/jdk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-配置环境变量-执行命令"><span class="toc-number">2.4.</span> <span class="toc-text">4. 配置环境变量,执行命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-修改-profile-文件中内容"><span class="toc-number">2.5.</span> <span class="toc-text">5. 修改 profile 文件中内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-解析文件-或重启系统"><span class="toc-number">2.6.</span> <span class="toc-text">6. 解析文件(或重启系统)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-验证配置是否成功"><span class="toc-number">2.7.</span> <span class="toc-text">7. 验证配置是否成功</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tomcat-配置"><span class="toc-number">3.</span> <span class="toc-text">Tomcat 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-把tomcat压缩包上传到服务器"><span class="toc-number">3.1.</span> <span class="toc-text">1. 把tomcat压缩包上传到服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-解压tomcat"><span class="toc-number">3.2.</span> <span class="toc-text">2. 解压tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-解压后的文件夹复制到-usr-local-tomcat"><span class="toc-number">3.3.</span> <span class="toc-text">3. 解压后的文件夹复制到/usr/local/tomcat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-配置环境变量"><span class="toc-number">3.4.</span> <span class="toc-text">4. 配置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-iptables-放行8080端口"><span class="toc-number">3.5.</span> <span class="toc-text">5. iptables 放行8080端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-启动tomcat-进入到tomcat-bin文件夹"><span class="toc-number">3.6.</span> <span class="toc-text">6. 启动tomcat,进入到tomcat/bin文件夹</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MySql-配置"><span class="toc-number">4.</span> <span class="toc-text">MySql 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建用户组和用户"><span class="toc-number">4.1.</span> <span class="toc-text">创建用户组和用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋权，让用户组和用户具有操作权限"><span class="toc-number">4.2.</span> <span class="toc-text">赋权，让用户组和用户具有操作权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">4.3.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改配置文件"><span class="toc-number">4.4.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动、重启、关闭mysql服务"><span class="toc-number">4.5.</span> <span class="toc-text">启动、重启、关闭mysql服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作mysql数据库"><span class="toc-number">4.6.</span> <span class="toc-text">操作mysql数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使其他用户具有访问数据库的权限"><span class="toc-number">4.7.</span> <span class="toc-text">使其他用户具有访问数据库的权限</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
