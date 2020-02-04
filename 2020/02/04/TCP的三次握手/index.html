@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;91b15ed1-c6ac-4ef8-93db-8f968aabddac.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;edf0046d-ed42-441a-97c8-edfee9d46c22.png">
-<meta property="og:updated_time" content="2020-02-04T05:29:46.000Z">
+<meta property="og:updated_time" content="2020-02-04T05:52:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;91b15ed1-c6ac-4ef8-93db-8f968aabddac.png">
   
@@ -221,10 +221,13 @@
         <h2 id="TCP报文头"><a href="#TCP报文头" class="headerlink" title="TCP报文头"></a>TCP报文头</h2><p>首先我们知道TCP协议是<strong>TCP/IP协议集</strong>中<strong>传输层</strong>的协议，是一种<strong>面向连接</strong>的，基于字节流的通信协议。<br>数据在网络中传输时，自上而下进行封装数据时，每一层都会给数据封装一个报文头，而在传输层使用TCP协议就会给数据封装一个TCP报文头，以下是TCP报文头的内容：<br><img src="http://joezeo.cn-bj.ufileos.com/91b15ed1-c6ac-4ef8-93db-8f968aabddac.png" alt=""></p>
 <a id="more"></a>
 <blockquote>
-<h3 id="其中TCP-FLAG共有八个，这里列出常见的6个"><a href="#其中TCP-FLAG共有八个，这里列出常见的6个" class="headerlink" title="其中TCP FLAG共有八个，这里列出常见的6个"></a>其中TCP FLAG共有八个，这里列出常见的6个</h3><hr>
-<p>URG：紧急指针标志<br><strong>ACK：确认序号标志，确认序号匹配时=1</strong><br>PSH：push标志（通俗来讲就是用来插队的）<br>RST：重置连接标志<br><strong>SYN：同步序号，用于建立连接的过程</strong><br>FIN：finish标志，用于释放连接</p>
+<h3 id="其中TCP-FLAG共有八个，这里列出常见的6个"><a href="#其中TCP-FLAG共有八个，这里列出常见的6个" class="headerlink" title="其中TCP FLAG共有八个，这里列出常见的6个"></a>其中TCP FLAG共有八个，这里列出常见的6个</h3><p>URG：紧急指针标志<br><strong>ACK：确认序号标志，确认序号匹配时=1</strong><br>PSH：push标志（通俗来讲就是用来插队的）<br>RST：重置连接标志<br><strong>SYN：同步序号，用于建立连接的过程</strong><br>FIN：finish标志，用于释放连接</p>
 </blockquote>
 <h2 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h2><p>首先”握手”是为了建立连接，在理解建立连接过程时我们忽略掉网络层以及链路层。<br><img src="http://joezeo.cn-bj.ufileos.com/edf0046d-ed42-441a-97c8-edfee9d46c22.png" alt=""></p>
+<blockquote>
+<h4 id="在TCP-IP协议中，TCP协议提供可靠的连接服务，采用三次握手建立一个连接。"><a href="#在TCP-IP协议中，TCP协议提供可靠的连接服务，采用三次握手建立一个连接。" class="headerlink" title="在TCP/IP协议中，TCP协议提供可靠的连接服务，采用三次握手建立一个连接。"></a>在TCP/IP协议中，TCP协议提供可靠的连接服务，采用三次握手建立一个连接。</h4><hr>
+<p>第一次握手：建立连接时，客户端发送SYN包[seq=x]到服务器，并进入SYN_SEND状态，等待服务器确认；<br>第二次握手：服务器收到SYN包，必须确认客户的SYN包（附带ack=x+1），同时自己发送一个SYN包(seq=y)，即SYN+ACK包，此时服务器进入SYN_RECV状态；<br>第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK[ack=y+1]，此包发送完毕，客户端和服务器进入ESTABKUSHED状态，完成三次握手。</p>
+</blockquote>
 
       
 	  
@@ -396,7 +399,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP报文头"><span class="toc-number">1.</span> <span class="toc-text">TCP报文头</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#其中TCP-FLAG共有八个，这里列出常见的6个"><span class="toc-number">1.1.</span> <span class="toc-text">其中TCP FLAG共有八个，这里列出常见的6个</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP三次握手"><span class="toc-number">2.</span> <span class="toc-text">TCP三次握手</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP报文头"><span class="toc-number">1.</span> <span class="toc-text">TCP报文头</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#其中TCP-FLAG共有八个，这里列出常见的6个"><span class="toc-number">1.1.</span> <span class="toc-text">其中TCP FLAG共有八个，这里列出常见的6个</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP三次握手"><span class="toc-number">2.</span> <span class="toc-text">TCP三次握手</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在TCP-IP协议中，TCP协议提供可靠的连接服务，采用三次握手建立一个连接。"><span class="toc-number">2.0.1.</span> <span class="toc-text">在TCP/IP协议中，TCP协议提供可靠的连接服务，采用三次握手建立一个连接。</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
