@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Joezeo.com">
-  <title>Archives | Joezeo</title>
+  <title>TCP的三次握手 | Joezeo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不要左顾右盼望 慢慢积累, 慢慢写">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Joezeo">
-<meta property="og:url" content="https:&#x2F;&#x2F;joezeo.com&#x2F;archives&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="TCP报文头首先我们知道TCP协议是TCP&#x2F;IP协议集中传输层的协议，是一种面向连接的，基于字节流的通信协议。数据在网络中传输时，自上而下进行封装数据时，每一层都会给数据封装一个报文头，而在传输层使用TCP协议就会给数据封装一个TCP报文头，以下是TCP报文头的内容：">
+<meta name="keywords" content="TCP,网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TCP的三次握手">
+<meta property="og:url" content="https:&#x2F;&#x2F;joezeo.com&#x2F;2020&#x2F;02&#x2F;04&#x2F;TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B&#x2F;index.html">
 <meta property="og:site_name" content="Joezeo">
-<meta property="og:description" content="不要左顾右盼望 慢慢积累, 慢慢写">
+<meta property="og:description" content="TCP报文头首先我们知道TCP协议是TCP&#x2F;IP协议集中传输层的协议，是一种面向连接的，基于字节流的通信协议。数据在网络中传输时，自上而下进行封装数据时，每一层都会给数据封装一个报文头，而在传输层使用TCP协议就会给数据封装一个TCP报文头，以下是TCP报文头的内容：">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;91b15ed1-c6ac-4ef8-93db-8f968aabddac.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;edf0046d-ed42-441a-97c8-edfee9d46c22.png">
+<meta property="og:updated_time" content="2020-02-04T05:29:46.000Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;91b15ed1-c6ac-4ef8-93db-8f968aabddac.png">
   
     <link rel="alternative" href="/atom.xml" title="Joezeo" type="application/atom+xml">
   
@@ -181,369 +186,235 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-TCP的三次握手" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TCP的三次握手
+    </h1>
+  
+
+		
+		<!--显示阅读次数-->
+		
+		  <br/>
+		  <a class="cloud-tie-join-count" target="_parent" href="javascript:void(0);" style="color:gray;font-size:14px;">
+		  <span class="icon-sort"></span>
+		  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+					阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+		  </span>
+		  </a>
+		  
+		
+        
+        <a href="/2020/02/04/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/" class="archive-article-date">
+  	<time datetime="2020-02-04T03:55:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="TCP报文头"><a href="#TCP报文头" class="headerlink" title="TCP报文头"></a>TCP报文头</h2><p>首先我们知道TCP协议是<strong>TCP/IP协议集</strong>中<strong>传输层</strong>的协议，是一种<strong>面向连接</strong>的，基于字节流的通信协议。<br>数据在网络中传输时，自上而下进行封装数据时，每一层都会给数据封装一个报文头，而在传输层使用TCP协议就会给数据封装一个TCP报文头，以下是TCP报文头的内容：<br><img src="http://joezeo.cn-bj.ufileos.com/91b15ed1-c6ac-4ef8-93db-8f968aabddac.png" alt=""></p>
+<a id="more"></a>
+<blockquote>
+<h3 id="其中TCP-FLAG共有八个，这里列出常见的6个"><a href="#其中TCP-FLAG共有八个，这里列出常见的6个" class="headerlink" title="其中TCP FLAG共有八个，这里列出常见的6个"></a>其中TCP FLAG共有八个，这里列出常见的6个</h3><hr>
+<p>URG：紧急指针标志<br><strong>ACK：确认序号标志，确认序号匹配时=1</strong><br>PSH：push标志（通俗来讲就是用来插队的）<br>RST：重置连接标志<br><strong>SYN：同步序号，用于建立连接的过程</strong><br>FIN：finish标志，用于释放连接</p>
+</blockquote>
+<h2 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h2><p>首先”握手”是为了建立连接，在理解建立连接过程时我们忽略掉网络层以及链路层。<br><img src="http://joezeo.cn-bj.ufileos.com/edf0046d-ed42-441a-97c8-edfee9d46c22.png" alt=""></p>
+
+      
+	  
+	  
+		
+	
+	  <div class="declare" style="background-color: #eaeaea; margin-top: 2em; border-left: 3px solid #ff1700; padding: .5em 1em;">
+		<strong>本文作者：</strong>
+		
+		  Joezeo
+		
+		<br>
+		<strong>本文链接：</strong>
+		https://joezeo.com/2020/02/04/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/
+		<br>
+		<strong>版权声明：</strong>
+		本作品采用
+		<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+		进行许可。转载请注明出处！
+		
+		  <br>
+		  <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+		
+	  </div>
+	
+	
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/Alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/08/GitBash%E8%87%AA%E5%B8%A6vim%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BDpython%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2019-12-07T16:02:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/08/GitBash%E8%87%AA%E5%B8%A6vim%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BDpython%E5%BA%93%E7%9A%84%E9%97%AE%E9%A2%98/">GitBash 自带 vim 无法加载 python 库的问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">gitbash</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">TCP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">vim</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">网络</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://joezeo.com/2020/02/04/TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/07/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2019-12-06T16:22:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/01/Axios%EF%BC%9Aget%E4%B8%8Epost/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Axios：get与post</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/07/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">JAVA 笔记：类加载机制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Java笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">类加载</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP报文头"><span class="toc-number">1.</span> <span class="toc-text">TCP报文头</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#其中TCP-FLAG共有八个，这里列出常见的6个"><span class="toc-number">1.1.</span> <span class="toc-text">其中TCP FLAG共有八个，这里列出常见的6个</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP三次握手"><span class="toc-number">2.</span> <span class="toc-text">TCP三次握手</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9Amaven%E9%9B%86%E6%88%90ssm%E9%A1%B9%E7%9B%AE%E6%89%80%E9%9C%80Pom%E4%BE%9D%E8%B5%96%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="archive-article-date">
-  	<time datetime="2019-12-05T10:22:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9Amaven%E9%9B%86%E6%88%90ssm%E9%A1%B9%E7%9B%AE%E6%89%80%E9%9C%80Pom%E4%BE%9D%E8%B5%96%E5%8F%8A%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">JAVA 笔记：maven 集成 ssm 项目所需 Pom 依赖及配置文件</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Java笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">SSM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">maven</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">配置文件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%B8%80%E4%BA%9B%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2019-12-05T09:20:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9ASSM%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%B8%80%E4%BA%9B%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98/">JAVA 笔记：SSM 项目中一些线程安全问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Java笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">SSM</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">线程安全</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%AF%B9%E5%8F%8D%E5%B0%84%E8%83%BD%E5%A4%9F%E6%93%8D%E4%BD%9Cprivate%E4%BF%AE%E9%A5%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2019-12-05T09:12:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%AF%B9%E5%8F%8D%E5%B0%84%E8%83%BD%E5%A4%9F%E6%93%8D%E4%BD%9Cprivate%E4%BF%AE%E9%A5%B0%E5%B1%9E%E6%80%A7%E7%9A%84%E7%90%86%E8%A7%A3/">JAVA 笔记：对反射能够操作 private 修饰属性的理解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Java笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">反射</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9Avolatile%E4%B8%8Esynchronized/" class="archive-article-date">
-  	<time datetime="2019-12-05T08:57:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9Avolatile%E4%B8%8Esynchronized/">JAVA 笔记：volatile 与 synchronized</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Java笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2019-12-05T07:42:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/05/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">JAVA 笔记：多线程基础知识</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Java笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/04/Github%EF%BC%9Agit-clone%E9%80%9F%E5%BA%A6%E7%BC%93%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2019-12-04T13:39:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/04/Github%EF%BC%9Agit-clone%E9%80%9F%E5%BA%A6%E7%BC%93%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">Github：git clone 速度缓慢的解决方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -587,8 +458,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
