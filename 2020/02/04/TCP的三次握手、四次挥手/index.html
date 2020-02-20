@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="Joezeo">
 <meta property="og:description" content="一、TCP报文头首先我们知道TCP协议是TCP&#x2F;IP协议集中传输层的协议，是一种面向连接的，基于字节流的通信协议。数据在网络中传输时，自上而下进行封装数据时，每一层都会给数据封装一个报文头，而在传输层使用TCP协议就会给数据封装一个TCP报文头，以下是TCP报文头的内容：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;91b15ed1-c6ac-4ef8-93db-8f968aabddac.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;b1835a80-3af9-42b4-829d-999ca0a13f37.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;4e54b27b-3be0-4ee1-b1be-1098f1ffd15b.png">
-<meta property="og:updated_time" content="2020-02-04T08:03:36.000Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;2d3abc84-e7a5-4708-9027-effb256de745.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;731261b0-3c45-4506-b9d7-637c4527ab93.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;9762cc77-a35f-47cb-82b4-1fe77bdc08fd.png">
+<meta property="og:updated_time" content="2020-02-20T06:21:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;91b15ed1-c6ac-4ef8-93db-8f968aabddac.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;2d3abc84-e7a5-4708-9027-effb256de745.png">
   
     <link rel="alternative" href="/atom.xml" title="Joezeo" type="application/atom+xml">
   
@@ -219,12 +219,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、TCP报文头"><a href="#一、TCP报文头" class="headerlink" title="一、TCP报文头"></a>一、TCP报文头</h2><p>首先我们知道TCP协议是<strong>TCP/IP协议集</strong>中<strong>传输层</strong>的协议，是一种<strong>面向连接</strong>的，基于字节流的通信协议。<br>数据在网络中传输时，自上而下进行封装数据时，每一层都会给数据封装一个报文头，而在传输层使用TCP协议就会给数据封装一个TCP报文头，以下是TCP报文头的内容：<br><img src="http://joezeo.cn-bj.ufileos.com/91b15ed1-c6ac-4ef8-93db-8f968aabddac.png" alt=""></p>
+        <h2 id="一、TCP报文头"><a href="#一、TCP报文头" class="headerlink" title="一、TCP报文头"></a>一、TCP报文头</h2><p>首先我们知道TCP协议是<strong>TCP/IP协议集</strong>中<strong>传输层</strong>的协议，是一种<strong>面向连接</strong>的，基于字节流的通信协议。<br>数据在网络中传输时，自上而下进行封装数据时，每一层都会给数据封装一个报文头，而在传输层使用TCP协议就会给数据封装一个TCP报文头，以下是TCP报文头的内容：<br><img src="http://joezeo.cn-bj.ufileos.com/2d3abc84-e7a5-4708-9027-effb256de745.png" alt=""></p>
 <a id="more"></a>
 <blockquote>
 <h3 id="其中TCP-FLAG共有八个，这里列出常见的6个"><a href="#其中TCP-FLAG共有八个，这里列出常见的6个" class="headerlink" title="其中TCP FLAG共有八个，这里列出常见的6个"></a>其中TCP FLAG共有八个，这里列出常见的6个</h3><p>URG：紧急指针标志<br><strong>ACK：确认序号标志，确认序号匹配时=1</strong><br>PSH：push标志（通俗来讲就是用来插队的）<br>RST：重置连接标志<br><strong>SYN：同步标志，用于建立连接的过程</strong><br><strong>FIN：finish标志，用于释放连接</strong></p>
 </blockquote>
-<h2 id="二、TCP三次握手"><a href="#二、TCP三次握手" class="headerlink" title="二、TCP三次握手"></a>二、TCP三次握手</h2><p>首先”握手”是为了建立连接，在理解建立连接过程时我们忽略掉网络层以及链路层。<br><img src="http://joezeo.cn-bj.ufileos.com/b1835a80-3af9-42b4-829d-999ca0a13f37.png" alt=""></p>
+<h2 id="二、TCP三次握手"><a href="#二、TCP三次握手" class="headerlink" title="二、TCP三次握手"></a>二、TCP三次握手</h2><p>首先”握手”是为了建立连接，在理解建立连接过程时我们忽略掉网络层以及链路层。<br><img src="http://joezeo.cn-bj.ufileos.com/731261b0-3c45-4506-b9d7-637c4527ab93.png" alt=""></p>
 <blockquote>
 <h2 id="在TCP-IP协议中，TCP协议提供可靠的连接服务，采用三次握手建立一个连接。"><a href="#在TCP-IP协议中，TCP协议提供可靠的连接服务，采用三次握手建立一个连接。" class="headerlink" title="在TCP/IP协议中，TCP协议提供可靠的连接服务，采用三次握手建立一个连接。"></a>在TCP/IP协议中，TCP协议提供可靠的连接服务，采用三次握手建立一个连接。</h2><p>第一次握手：建立连接时，客户端发送SYN包[seq=x]到服务器，并进入SYN_SEND状态，等待服务器确认；<br>第二次握手：服务器收到SYN包，必须确认客户的SYN包（附带ack=x+1），同时自己发送一个SYN包(seq=y)，即SYN+ACK包，此时服务器进入SYN_RECV状态；<br>第三次握手：客户端收到服务器的SYN+ACK包，向服务器发送确认包ACK[ack=y+1]，此包发送完毕，客户端和服务器进入ESTABKUSHED状态，完成三次握手。</p>
 </blockquote>
@@ -249,7 +249,7 @@
 </ol>
 </blockquote>
 <hr>
-<h2 id="三、TCP四次挥手"><a href="#三、TCP四次挥手" class="headerlink" title="三、TCP四次挥手"></a>三、TCP四次挥手</h2><p>“挥手”是为了终止连接，在Socket编程中，由执行close()方法的一方首先发出，我们以client发出为例：<br><img src="http://joezeo.cn-bj.ufileos.com/4e54b27b-3be0-4ee1-b1be-1098f1ffd15b.png" alt=""></p>
+<h2 id="三、TCP四次挥手"><a href="#三、TCP四次挥手" class="headerlink" title="三、TCP四次挥手"></a>三、TCP四次挥手</h2><p>“挥手”是为了终止连接，在Socket编程中，由执行close()方法的一方首先发出，我们以client发出为例：<br><img src="http://joezeo.cn-bj.ufileos.com/9762cc77-a35f-47cb-82b4-1fe77bdc08fd.png" alt=""></p>
 <blockquote>
 <h2 id="TCP使用四次挥手释放连接"><a href="#TCP使用四次挥手释放连接" class="headerlink" title="TCP使用四次挥手释放连接"></a>TCP使用四次挥手释放连接</h2><p>第一次挥手：client向server发送[FIN]包(seq=u)，用来关闭client到server的数据传输，client进入<strong>FIN-WAIT-1</strong>状态；<br>第二次挥手：server向client发送[ACK]包(seq=v,ack=u+1)，服务器进入<strong>CLOSE-WAIT</strong>状态；<br>第三次挥手：server向client发送[FIN]包(seq=w,ack=u+1)，关闭server到client的数据传输，server进入<strong>LAST-ACK</strong>状态；<br>第四次挥手：client向server发送[ACK]包(seq=u+1,ack=w+1)，client进入<strong>TIME-WAIT</strong>状态，服务器进入<strong>CLOSED</strong>状态；<br>client<strong>等待2MSL</strong>的时间，进入<strong>CLOSED</strong>状态。</p>
 </blockquote>

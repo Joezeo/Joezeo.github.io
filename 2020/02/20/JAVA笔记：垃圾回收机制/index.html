@@ -6,22 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Joezeo.com">
-  <title>转载：理解IOC、DI | Joezeo</title>
+  <title>JAVA笔记：垃圾回收机制 | Joezeo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原文地址：https:&#x2F;&#x2F;www.iteye.com&#x2F;topic&#x2F;692793 工厂方法模式与IoC&#x2F;DIIOC——Inversion of Control  控制反转DI ——Dependency Injection  依赖注入 1：如何理解IoC&#x2F;DI要想理解上面两个概念，就必须搞清楚如下的问题：">
-<meta name="keywords" content="转载,IOC&#x2F;DI">
+  <meta name="description" content="对象被判定为垃圾的标准没有被其他对象所引用时。 判定垃圾的算法1.引用计数算法2.可达性分析算法">
+<meta name="keywords" content="Java笔记,垃圾回收">
 <meta property="og:type" content="article">
-<meta property="og:title" content="转载：理解IOC、DI">
-<meta property="og:url" content="https:&#x2F;&#x2F;joezeo.com&#x2F;2020&#x2F;02&#x2F;18&#x2F;%E8%BD%AC%E8%BD%BD%EF%BC%9A%E7%90%86%E8%A7%A3IOC%E3%80%81DI&#x2F;index.html">
+<meta property="og:title" content="JAVA笔记：垃圾回收机制">
+<meta property="og:url" content="https:&#x2F;&#x2F;joezeo.com&#x2F;2020&#x2F;02&#x2F;20&#x2F;JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6&#x2F;index.html">
 <meta property="og:site_name" content="Joezeo">
-<meta property="og:description" content="原文地址：https:&#x2F;&#x2F;www.iteye.com&#x2F;topic&#x2F;692793 工厂方法模式与IoC&#x2F;DIIOC——Inversion of Control  控制反转DI ——Dependency Injection  依赖注入 1：如何理解IoC&#x2F;DI要想理解上面两个概念，就必须搞清楚如下的问题：">
+<meta property="og:description" content="对象被判定为垃圾的标准没有被其他对象所引用时。 判定垃圾的算法1.引用计数算法2.可达性分析算法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;dl.iteye.com&#x2F;upload&#x2F;attachment&#x2F;265411&#x2F;6fe19539-32ce-3a62-bc20-f8dc1e819f82.gif">
-<meta property="og:image" content="http:&#x2F;&#x2F;dl.iteye.com&#x2F;upload&#x2F;attachment&#x2F;265413&#x2F;e29bb428-b9f0-3465-8601-671c3fa68b8c.gif">
-<meta property="og:image" content="http:&#x2F;&#x2F;dl.iteye.com&#x2F;upload&#x2F;attachment&#x2F;265415&#x2F;2a537021-45c9-3fd3-80c5-18b9ace2b27a.gif">
-<meta property="og:updated_time" content="2020-02-18T10:40:26.000Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;cb8cebc4-b44a-4d25-b5ab-226dff066907.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;fce52dd6-8342-4990-936a-da16aa43a2b2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;324b952f-148a-475f-9304-06de5e1a5391.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;10f44b0f-d379-473a-90d2-218375c2dccd.png">
+<meta property="og:updated_time" content="2020-02-20T08:08:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;dl.iteye.com&#x2F;upload&#x2F;attachment&#x2F;265411&#x2F;6fe19539-32ce-3a62-bc20-f8dc1e819f82.gif">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;joezeo.cn-bj.ufileos.com&#x2F;cb8cebc4-b44a-4d25-b5ab-226dff066907.png">
   
     <link rel="alternative" href="/atom.xml" title="Joezeo" type="application/atom+xml">
   
@@ -187,14 +188,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-转载：理解IOC、DI" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-JAVA笔记：垃圾回收机制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      转载：理解IOC、DI
+      JAVA笔记：垃圾回收机制
     </h1>
   
 
@@ -211,44 +212,166 @@
 		  
 		
         
-        <a href="/2020/02/18/%E8%BD%AC%E8%BD%BD%EF%BC%9A%E7%90%86%E8%A7%A3IOC%E3%80%81DI/" class="archive-article-date">
-  	<time datetime="2020-02-18T10:00:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-18</time>
+        <a href="/2020/02/20/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2020-02-20T06:14:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文地址：<a href="https://www.iteye.com/topic/692793" target="_blank" rel="noopener">https://www.iteye.com/topic/692793</a></p>
-<h1 id="工厂方法模式与IoC-DI"><a href="#工厂方法模式与IoC-DI" class="headerlink" title="工厂方法模式与IoC/DI"></a>工厂方法模式与IoC/DI</h1><p>IOC——Inversion of Control  控制反转<br>DI ——Dependency Injection  依赖注入</p>
-<h2 id="1：如何理解IoC-DI"><a href="#1：如何理解IoC-DI" class="headerlink" title="1：如何理解IoC/DI"></a>1：如何理解IoC/DI</h2><p>要想理解上面两个概念，就必须搞清楚如下的问题：</p>
+        <h2 id="对象被判定为垃圾的标准"><a href="#对象被判定为垃圾的标准" class="headerlink" title="对象被判定为垃圾的标准"></a>对象被判定为垃圾的标准</h2><p>没有被其他对象所引用时。</p>
+<h2 id="判定垃圾的算法"><a href="#判定垃圾的算法" class="headerlink" title="判定垃圾的算法"></a>判定垃圾的算法</h2><p>1.引用计数算法<br>2.可达性分析算法</p>
 <a id="more"></a>
-<blockquote>
-<p>参与者都有谁？<br>依赖：谁依赖于谁？为什么需要依赖？<br>注入：谁注入于谁？到底注入什么？<br>控制反转：谁控制谁？控制什么？为何叫反转（有反转就应该有正转了）？<br>依赖注入和控制反转是同一概念吗？</p>
+<h3 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h3><blockquote>
+<p>每个对象实例都有一个引用计数器，被引用则+1，完成引用则-1<br>任何引用计数为0的对象实例都可以被当作垃圾收集  </p>
 </blockquote>
-<p>下面就来简要的回答一下上述问题，把这些问题搞明白了，IoC/DI也就明白了。<br>（1）参与者都有谁：</p>
-<pre><code>一般有三方参与者，一个是某个对象；一个是IoC/DI的容器；另一个是某个对象的外部资源。
-又要名词解释一下，某个对象指的就是任意的、普通的Java对象; IoC/DI的容器简单点说就是指用来实现IoC/DI功能的一个框架程序；对象的外部资源指的就是对象需要的，但是是从对象外部获取的，都统称资源，比如：对象需要的其它对象、或者是对象需要的文件资源等等。</code></pre><p>（2）谁依赖于谁：</p>
-<pre><code>当然是某个对象依赖于IoC/DI的容器</code></pre><p>（3）为什么需要依赖：</p>
-<pre><code>对象需要IoC/DI的容器来提供对象需要的外部资源</code></pre><p>（4）谁注入于谁：</p>
-<pre><code>很明显是IoC/DI的容器 注入 某个对象</code></pre><p>（5）到底注入什么：</p>
-<pre><code>就是注入某个对象所需要的外部资源</code></pre><p>（6）谁控制谁：</p>
-<pre><code>当然是IoC/DI的容器来控制对象了</code></pre><p>（7）控制什么：</p>
-<pre><code>主要是控制对象实例的创建</code></pre><p>（8）为何叫反转：</p>
-<pre><code>反转是相对于正向而言的，那么什么算是正向的呢？考虑一下常规情况下的应用程序，如果要在A里面使用C，你会怎么做呢？当然是直接去创建C的对象，也就是说，是在A类中主动去获取所需要的外部资源C，这种情况被称为正向的。那么什么是反向呢？就是A类不再主动去获取C，而是被动等待，等待IoC/DI的容器获取一个C的实例，然后反向的注入到A类中。</code></pre><p> 用图例来说明一下，先看没有IoC/DI的时候，常规的A类使用C类的示意图，如图7所示：<br> <img src="http://dl.iteye.com/upload/attachment/265411/6fe19539-32ce-3a62-bc20-f8dc1e819f82.gif" alt=""><br><code>图7  常规A使用C示意图</code></p>
-<p>当有了IoC/DI的容器后，A类不再主动去创建C了，如图8所示：<br><img src="http://dl.iteye.com/upload/attachment/265413/e29bb428-b9f0-3465-8601-671c3fa68b8c.gif" alt=""><br><code>图8  A类不再主动创建C</code></p>
-<p>而是被动等待，等待IoC/DI的容器获取一个C的实例，然后反向的注入到A类中，如图9所示：<br><img src="http://dl.iteye.com/upload/attachment/265415/2a537021-45c9-3fd3-80c5-18b9ace2b27a.gif" alt=""><br><code>图9  有IoC/DI容器后程序结构示意图</code><br>（9）依赖注入和控制反转是同一概念吗？</p>
-<pre><code>根据上面的讲述，应该能看出来，依赖注入和控制反转是对同一件事情的不同描述，从某个方面讲，就是它们描述的角度不同。依赖注入是从应用程序的角度在描述，可以把依赖注入描述完整点：应用程序依赖容器创建并注入它所需要的外部资源；而控制反转是从容器的角度在描述，描述完整点：容器控制应用程序，由容器反向的向应用程序注入应用程序所需要的外部资源。</code></pre><p>（10）小结一下：</p>
-<pre><code>其实IoC/DI对编程带来的最大改变不是从代码上，而是从思想上，发生了“主从换位”的变化。应用程序原本是老大，要获取什么资源都是主动出击，但是在IoC/DI思想中，应用程序就变成被动的了，被动的等待IoC/DI容器来创建并注入它所需要的资源了。
-这么小小的一个改变其实是编程思想的一个大进步，这样就有效的分离了对象和它所需要的外部资源，使得它们松散耦合，有利于功能复用，更重要的是使得程序的整个体系结构变得非常灵活。</code></pre><h2 id="2：工厂方法模式和IoC-DI有什么关系呢？"><a href="#2：工厂方法模式和IoC-DI有什么关系呢？" class="headerlink" title="2：工厂方法模式和IoC/DI有什么关系呢？"></a>2：工厂方法模式和IoC/DI有什么关系呢？</h2><p>从某个角度讲，它们的思想很类似。<br>        上面讲了，有了IoC/DI过后，应用程序就不再主动了，而是被动等待由容器来注入资源，那么在编写代码的时候，一旦要用到外部资源，就会开一个窗口，让容器能注入进来，也就是提供给容器使用的注入的途径，当然这不是我们的重点，就不去细细讲了，用setter注入来示例一下，看看使用IoC/DI的代码是什么样子，示例代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 等待被注入进来</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">    <span class="keyword">private</span> C c = <span class="keyword">null</span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 注入资源C的方法</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * <span class="doctag">@param</span> c 被注入的资源</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setC</span><span class="params">(C c)</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">       <span class="keyword">this</span>.c = c;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">16</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">t1</span><span class="params">()</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">17</span></pre></td><td class="code"><pre><span class="line">       <span class="comment">//这里需要使用C，可是又不让主动去创建C了，怎么办？</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">18</span></pre></td><td class="code"><pre><span class="line">       <span class="comment">//反正就要求从外部注入，这样更省心，</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">19</span></pre></td><td class="code"><pre><span class="line">       <span class="comment">//自己不用管怎么获取C，直接使用就好了</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">20</span></pre></td><td class="code"><pre><span class="line">       c.tc();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">21</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">22</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-<p>接口C的示例代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">C</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">tc</span><span class="params">()</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-<p>从上面的示例代码可以看出，现在在A里面写代码的时候，凡是碰到了需要外部资源，那么就提供注入的途径，要求从外部注入，自己只管使用这些对象。<br>再来看看工厂方法模式，如何实现上面同样的功能，为了区分，分别取名为A1和C1。这个时候在A1里面要使用C1对象，也不是由A1主动去获取C1对象，而是创建一个工厂方法，就类似于一个注入的途径；然后由子类，假设叫A2吧，由A2来获取C1对象，在调用的时候，替换掉A1的相应方法，相当于反向注入回到A1里面，示例代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A1</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * 工厂方法，创建C1，类似于从子类注入进来的途径</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     * <span class="doctag">@return</span> C1的对象实例</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="comment">     */</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> C1 <span class="title">createC1</span><span class="params">()</span></span>;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">t1</span><span class="params">()</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line">       <span class="comment">//这里需要使用C1类，可是不知道究竟是用哪一个</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">       <span class="comment">//也就不主动去创建C1了，怎么办？</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">12</span></pre></td><td class="code"><pre><span class="line">       <span class="comment">//反正会在子类里面实现，这里不用管怎么获取C1，直接使用就好了</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">13</span></pre></td><td class="code"><pre><span class="line">       createC1().tc();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">14</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">15</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-<p>子类的示例代码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A2</span> <span class="keyword">extends</span> <span class="title">A1</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">protected</span> C1 <span class="title">createC1</span><span class="params">()</span> </span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">       <span class="comment">//真正的选择具体实现，并创建对象</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> C2();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">    &#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">	</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
-<p>C1接口和前面C接口是一样的，C2这个实现类也是空的，只是演示一下，因此就不去展示它们的代码了。<br>仔细体会上面的示例，对比它们的实现，尤其是从思想层面上，会发现工厂方法模式和IoC/DI的思想是相似的，都是“<strong>主动变被动</strong>”，进行了“<strong>主从换位</strong>”，从而获得了更灵活的程序结构。</p>
+<p>优点：执行效率高，程序执行受影响小<br>缺点：无法检测出循环引用的情况，导致内存泄漏</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line"><span class="comment">//类A、B循环引用</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">	B b = <span class="keyword">new</span> B();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span></span>&#123;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">	A a = <span class="keyword">new</span> A();</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure>
+
+<h3 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h3><blockquote>
+<p>判断对象的引用链是否可达，决定对象是否被回收<br>从GcRoot出发开始遍历所有可达的引用  </p>
+</blockquote>
+<p>可作为GcRoot的对象：</p>
+<ol>
+<li>虚拟机栈帧中的引用对象（栈帧中的本地变量表）</li>
+<li>方法区常量引用的对象</li>
+<li>方法区中类静态属性引用的对象</li>
+<li>本地方法栈中JNI（native方法）的引用对象</li>
+<li>活跃线程的引用对象<br><img src="http://joezeo.cn-bj.ufileos.com/cb8cebc4-b44a-4d25-b5ab-226dff066907.png" alt=""><br><code>引用可达算法图例</code><br>引用可达算法避免了对象循环引用而无法被标记成为垃圾的问题。</li>
+</ol>
+<hr>
+<h2 id="清理垃圾的算法"><a href="#清理垃圾的算法" class="headerlink" title="清理垃圾的算法"></a>清理垃圾的算法</h2><p>1.标记-清除算法<br>2.复制算法<br>3.标记-整理算法</p>
+<h3 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h3><p>过程：</p>
+<blockquote>
+<ol>
+<li>标记：从根集合进行扫描（即引用可达算法），对存活的对象进行标记</li>
+<li>清除：对堆内存从头到尾进行线性遍历，回收不可达对象内存  </li>
+</ol>
+</blockquote>
+<p>缺点：碎片化，可能产生大量内存碎片。<br>如果这时创建一个大对象，实际的内存空间是足够的，但是由于存在大量碎片而导致空间不足，JVM会进行新一轮垃圾回收，影响程序性能。<br><img src="http://joezeo.cn-bj.ufileos.com/fce52dd6-8342-4990-936a-da16aa43a2b2.png" alt=""><br><code>标记-清除算法，产生大量碎片</code></p>
+<h3 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h3><p>过程：</p>
+<blockquote>
+<ol>
+<li>分为空闲面和对象面</li>
+<li>对象在对象面上创建</li>
+<li>存活的对象从对象面复制到空闲面（连续分配空间）</li>
+<li>将对象面所有的对象内容清除  </li>
+</ol>
+</blockquote>
+<p>特点：</p>
+<ol>
+<li>解决了碎片化的问题</li>
+<li>顺序分配内存，简单高效</li>
+<li>适用于对象存活率低的场景（如堆中的年轻代）<br><img src="http://joezeo.cn-bj.ufileos.com/324b952f-148a-475f-9304-06de5e1a5391.png" alt=""><br><code>复制算法</code><h3 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h3>过程：<blockquote>
+<ol>
+<li>标记：从根集合进行扫描（即引用可达算法），对存活的对象进行标记</li>
+<li>整理：移动所有存活的对象，按照内存地址依次排列，之后将末端存活对象后面所有的内存回收  </li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<p>特点：</p>
+<ol>
+<li>解决了碎片化的问题</li>
+<li>不用设置两块内存互换</li>
+<li>适用于对象存活率高的场景（如堆中的老年代）<br><img src="http://joezeo.cn-bj.ufileos.com/10f44b0f-d379-473a-90d2-218375c2dccd.png" alt=""><br><code>标记-整理算法</code></li>
+</ol>
+<hr>
+<h2 id="JVM的分代收集算法"><a href="#JVM的分代收集算法" class="headerlink" title="JVM的分代收集算法"></a>JVM的分代收集算法</h2><ol>
+<li>垃圾回收算法的组合拳</li>
+<li>按照对象的生命周期的不同划分区域，不同区域分为不同的垃圾回收算法</li>
+<li>提高JVM垃圾回收的效率  </li>
+<li>分为年轻代和老年代</li>
+</ol>
+<h3 id="GC分类"><a href="#GC分类" class="headerlink" title="GC分类"></a>GC分类</h3><p>Minor GC - 年轻代<br>Full GC - 老年代</p>
+<h2 id="年轻代-Minor-GC（复制算法）"><a href="#年轻代-Minor-GC（复制算法）" class="headerlink" title="年轻代 Minor GC（复制算法）"></a>年轻代 Minor GC（复制算法）</h2><p>年轻代分区：</p>
+<ol>
+<li>Eden区</li>
+<li>两个Survivor区（一个from，一个to：经过垃圾回收，两个区域会互换，复制算法操作的区域）<br><code>默认大小比例 Eden:from:to=8:1:1</code></li>
+</ol>
+<h3 id="对象如何晋升到老年代"><a href="#对象如何晋升到老年代" class="headerlink" title="对象如何晋升到老年代"></a>对象如何晋升到老年代</h3><ol>
+<li>经过一定次数的MinorGc依然存活的对象</li>
+<li>Survivor区存放不下的对象</li>
+<li>新生成的大对象</li>
+</ol>
+<h3 id="与之相关的常用JVM调优参数"><a href="#与之相关的常用JVM调优参数" class="headerlink" title="与之相关的常用JVM调优参数"></a>与之相关的常用JVM调优参数</h3><blockquote>
+<ol>
+<li>-XX:SurvivorRation <code>Eden和survivor的比值，默认8（8:1）</code></li>
+<li>-XX:newRation <code>老年代和年轻代的内存大小的比例，如4（4:1）</code></li>
+<li>-XX:MaxTenuringThreshhold <code>对象从年轻代晋升到老年代经过GC次数的最大阈值，默认15</code></li>
+<li>-XX:PretenuerSizeThreshhold <code>大对象直接放入老年代的大小阈值</code></li>
+</ol>
+</blockquote>
+<h2 id="老年代-Full-GC-同时对年轻代也会触发GC，标记-整理算法"><a href="#老年代-Full-GC-同时对年轻代也会触发GC，标记-整理算法" class="headerlink" title="老年代 Full GC(同时对年轻代也会触发GC，标记-整理算法)"></a>老年代 Full GC(同时对年轻代也会触发GC，标记-整理算法)</h2><p>触发Full GC的条件：</p>
+<ol>
+<li>老年代空间不足</li>
+<li>永久代空间不足（JDK7及以前，在之前的笔记中有说到，JDK8及之后永久代已被元空间代替）</li>
+<li>CMS GC时出现Promotion Failed ，concurrent mode failure</li>
+<li>MinorGC晋升到老年代对象的平均大小大于老年代剩余空间</li>
+<li>显示调用System.gc()（只是建议JVM执行GC，并不一定会执行）</li>
+<li>使用RMI进行RPC或者管理的应用，每隔一小时执行一次Full GC分类</li>
+</ol>
+<h2 id="关于JVM垃圾收集器的一些概念"><a href="#关于JVM垃圾收集器的一些概念" class="headerlink" title="关于JVM垃圾收集器的一些概念"></a>关于JVM垃圾收集器的一些概念</h2><h3 id="Stop-the-world"><a href="#Stop-the-world" class="headerlink" title="Stop-the-world"></a>Stop-the-world</h3><ol>
+<li>JVM由于要执行GC而停止应用程序的执行</li>
+<li>任何一种GC算法中都会发生</li>
+<li>多数GC通过减少Stop-the-world发生的时间来提升程序性能</li>
+</ol>
+<hr>
+<h3 id="SafePoint（安全点）"><a href="#SafePoint（安全点）" class="headerlink" title="SafePoint（安全点）"></a>SafePoint（安全点）</h3><ol>
+<li>分析过程中对象引用关系不会发生变化的点</li>
+<li>产生safePoint的地方：方法调用、循环跳转、异常跳转</li>
+<li>安全点的数量应当适中</li>
+</ol>
+<hr>
+<h3 id="JVM的运行模式"><a href="#JVM的运行模式" class="headerlink" title="JVM的运行模式"></a>JVM的运行模式</h3><p>1.Server 启动慢、性能优化好<br>2.Client 启动快、性能不如Server</p>
+<h2 id="年轻代的垃圾收集器"><a href="#年轻代的垃圾收集器" class="headerlink" title="年轻代的垃圾收集器"></a>年轻代的垃圾收集器</h2><h3 id="Serial（串行）收集器（-XX-UseSerialGC，复制算法）"><a href="#Serial（串行）收集器（-XX-UseSerialGC，复制算法）" class="headerlink" title="Serial（串行）收集器（-XX:+UseSerialGC，复制算法）"></a>Serial（串行）收集器（-XX:+UseSerialGC，复制算法）</h3><ol>
+<li>单线程收集，进行垃圾收集时，必须暂停所有工作线程</li>
+<li>简单高效，client模式下默认的年轻代垃圾收集器</li>
+</ol>
+<hr>
+<h3 id="ParNew收集器（-XX-UserParNewGC，复制算法）"><a href="#ParNew收集器（-XX-UserParNewGC，复制算法）" class="headerlink" title="ParNew收集器（-XX:+UserParNewGC，复制算法）"></a>ParNew收集器（-XX:+UserParNewGC，复制算法）</h3><ol>
+<li>多线程收集，其余特点、行为和Serial收集器一致</li>
+<li>单核执行效率不如Serial，在多核下才有优势</li>
+</ol>
+<hr>
+<h3 id="Parallel-Scanvenge收集器（-XX-UseParallerGC，复制算法）"><a href="#Parallel-Scanvenge收集器（-XX-UseParallerGC，复制算法）" class="headerlink" title="Parallel Scanvenge收集器（-XX:+UseParallerGC，复制算法）"></a>Parallel Scanvenge收集器（-XX:+UseParallerGC，复制算法）</h3><ol>
+<li>比起关注用户线程的停顿时间，更关注系统吞吐量<br><code>吞吐量=运行用户代码时间/(运行用户代码时间+垃圾收集时间)</code></li>
+<li>在多核下才有优势，Server模式下的默认年轻代收集器</li>
+</ol>
+<h2 id="老年代的垃圾收集器"><a href="#老年代的垃圾收集器" class="headerlink" title="老年代的垃圾收集器"></a>老年代的垃圾收集器</h2><h3 id="Serial-Old（-XX-UseSerialOldGC-标记-整理算法）"><a href="#Serial-Old（-XX-UseSerialOldGC-标记-整理算法）" class="headerlink" title="Serial Old（-XX:+UseSerialOldGC, 标记-整理算法）"></a>Serial Old（-XX:+UseSerialOldGC, 标记-整理算法）</h3><ol>
+<li>单线程收集，进行垃圾收集时，必须暂停所有工作线程</li>
+<li>简单高效，client模式下默认的年轻代垃圾收集器</li>
+<li>也就是Serial收集器的老年代版本</li>
+</ol>
+<hr>
+<h3 id="Parallel-Old-XX-UserParallerOldGC，标记-整理算法"><a href="#Parallel-Old-XX-UserParallerOldGC，标记-整理算法" class="headerlink" title="Parallel Old(-XX:+UserParallerOldGC，标记-整理算法)"></a>Parallel Old(-XX:+UserParallerOldGC，标记-整理算法)</h3><ol>
+<li>多线程，吞吐量优先</li>
+</ol>
+<hr>
+<h3 id="CMS收集器-XX-UseConcMarkSweepGC，标记-清除算法"><a href="#CMS收集器-XX-UseConcMarkSweepGC，标记-清除算法" class="headerlink" title="CMS收集器(-XX:+UseConcMarkSweepGC，标记-清除算法)"></a>CMS收集器(-XX:+UseConcMarkSweepGC，标记-清除算法)</h3><p><code>由于使用的是标记-清除算法，所以多物理设备的要求较高</code><br>执行过程:</p>
+<blockquote>
+<ol>
+<li>初始化标记：stop-the-world</li>
+<li>并发标记：并发追溯标记，不会停顿</li>
+<li>并发预处理: 查找执行并发标记阶段从年轻代晋升到老年代的对象</li>
+<li>重新标记：stop-the-world，扫描CMS堆中剩余对象</li>
+<li>并发清理：清理垃圾对象，不会停顿</li>
+<li>并发重置：重置CMS收集器的数据结构</li>
+</ol>
+</blockquote>
+<p><code>由上我们可以看出，只有在初始化标记、重新标记阶段CMS才会暂停用户程序的执行</code></p>
+<h2 id="G1（Garbage-First）收集器（-XX-UseG1GC，复制-标记-整理算法）"><a href="#G1（Garbage-First）收集器（-XX-UseG1GC，复制-标记-整理算法）" class="headerlink" title="G1（Garbage First）收集器（-XX:+UseG1GC，复制+标记-整理算法）"></a>G1（Garbage First）收集器（-XX:+UseG1GC，复制+标记-整理算法）</h2><p>特点:</p>
+<blockquote>
+<ol>
+<li>并行和并发 <code>concurrent: 并发, 多个线程协同做同一件事情(有状态)</code> <code>parallel: 并行, 多个线程各做各的事情(互相间无共享状态)</code></li>
+<li>分代收集</li>
+<li>空间整合</li>
+<li>可预测的停顿</li>
+</ol>
+</blockquote>
+<p>  G1将整个Java堆划分成为多个大小相等的region,其中一部分区域被当成老一代收集器相同的角色(eden, survivor, old), 但每个角色的区域个数都不是固定的。这在内存使用上提供了更多的灵活性。<br>  年轻代和老年代不再物理分隔</p>
+<h3 id="关于G1收集器参看下列帖子教程"><a href="#关于G1收集器参看下列帖子教程" class="headerlink" title="关于G1收集器参看下列帖子教程"></a>关于G1收集器参看下列帖子教程</h3><p><a href="https://blog.csdn.net/renfufei/article/details/41897113" target="_blank" rel="noopener">G1垃圾收集器入门(包含JVM相关基础知识)</a><br><a href="https://www.bilibili.com/video/av89885794" target="_blank" rel="noopener">bilibili-新一代垃圾回收器：G1详解</a></p>
 
       
 	  
@@ -262,7 +385,7 @@
 		
 		<br>
 		<strong>本文链接：</strong>
-		https://joezeo.com/2020/02/18/%E8%BD%AC%E8%BD%BD%EF%BC%9A%E7%90%86%E8%A7%A3IOC%E3%80%81DI/
+		https://joezeo.com/2020/02/20/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/
 		<br>
 		<strong>版权声明：</strong>
 		本作品采用
@@ -317,11 +440,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">转载</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Java笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">IOC/DI</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">垃圾回收</a>
         		</li>
       		
 		</ul>
@@ -377,7 +500,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://joezeo.com/2020/02/18/%E8%BD%AC%E8%BD%BD%EF%BC%9A%E7%90%86%E8%A7%A3IOC%E3%80%81DI/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://joezeo.com/2020/02/20/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -391,18 +514,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/02/20/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/20/SpringBoot%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%9Ascheduling%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E6%97%A0%E6%B3%95%E6%89%A7%E8%A1%8C/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JAVA笔记：垃圾回收机制
+          SpringBoot踩坑记录：scheduling定时任务无法执行
         
       </div>
     </a>
   
   
-    <a href="/2020/02/16/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%96%B9%E6%B3%95%E5%8C%BA%E3%80%81%E5%85%83%E7%A9%BA%E9%97%B4%E5%92%8C%E6%B0%B8%E4%B9%85%E4%BB%A3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVA笔记：方法区、元空间和永久代</div>
+    <a href="/2020/02/18/%E8%BD%AC%E8%BD%BD%EF%BC%9A%E7%90%86%E8%A7%A3IOC%E3%80%81DI/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">转载：理解IOC、DI</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -429,7 +552,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#工厂方法模式与IoC-DI"><span class="toc-number">1.</span> <span class="toc-text">工厂方法模式与IoC/DI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1：如何理解IoC-DI"><span class="toc-number">1.1.</span> <span class="toc-text">1：如何理解IoC/DI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2：工厂方法模式和IoC-DI有什么关系呢？"><span class="toc-number">1.2.</span> <span class="toc-text">2：工厂方法模式和IoC/DI有什么关系呢？</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#对象被判定为垃圾的标准"><span class="toc-number">1.</span> <span class="toc-text">对象被判定为垃圾的标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判定垃圾的算法"><span class="toc-number">2.</span> <span class="toc-text">判定垃圾的算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#引用计数算法"><span class="toc-number">2.1.</span> <span class="toc-text">引用计数算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可达性分析算法"><span class="toc-number">2.2.</span> <span class="toc-text">可达性分析算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清理垃圾的算法"><span class="toc-number">3.</span> <span class="toc-text">清理垃圾的算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#标记-清除算法"><span class="toc-number">3.1.</span> <span class="toc-text">标记-清除算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制算法"><span class="toc-number">3.2.</span> <span class="toc-text">复制算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标记-整理算法"><span class="toc-number">3.3.</span> <span class="toc-text">标记-整理算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM的分代收集算法"><span class="toc-number">4.</span> <span class="toc-text">JVM的分代收集算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GC分类"><span class="toc-number">4.1.</span> <span class="toc-text">GC分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#年轻代-Minor-GC（复制算法）"><span class="toc-number">5.</span> <span class="toc-text">年轻代 Minor GC（复制算法）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#对象如何晋升到老年代"><span class="toc-number">5.1.</span> <span class="toc-text">对象如何晋升到老年代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与之相关的常用JVM调优参数"><span class="toc-number">5.2.</span> <span class="toc-text">与之相关的常用JVM调优参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#老年代-Full-GC-同时对年轻代也会触发GC，标记-整理算法"><span class="toc-number">6.</span> <span class="toc-text">老年代 Full GC(同时对年轻代也会触发GC，标记-整理算法)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于JVM垃圾收集器的一些概念"><span class="toc-number">7.</span> <span class="toc-text">关于JVM垃圾收集器的一些概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stop-the-world"><span class="toc-number">7.1.</span> <span class="toc-text">Stop-the-world</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SafePoint（安全点）"><span class="toc-number">7.2.</span> <span class="toc-text">SafePoint（安全点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM的运行模式"><span class="toc-number">7.3.</span> <span class="toc-text">JVM的运行模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#年轻代的垃圾收集器"><span class="toc-number">8.</span> <span class="toc-text">年轻代的垃圾收集器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Serial（串行）收集器（-XX-UseSerialGC，复制算法）"><span class="toc-number">8.1.</span> <span class="toc-text">Serial（串行）收集器（-XX:+UseSerialGC，复制算法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ParNew收集器（-XX-UserParNewGC，复制算法）"><span class="toc-number">8.2.</span> <span class="toc-text">ParNew收集器（-XX:+UserParNewGC，复制算法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parallel-Scanvenge收集器（-XX-UseParallerGC，复制算法）"><span class="toc-number">8.3.</span> <span class="toc-text">Parallel Scanvenge收集器（-XX:+UseParallerGC，复制算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#老年代的垃圾收集器"><span class="toc-number">9.</span> <span class="toc-text">老年代的垃圾收集器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Serial-Old（-XX-UseSerialOldGC-标记-整理算法）"><span class="toc-number">9.1.</span> <span class="toc-text">Serial Old（-XX:+UseSerialOldGC, 标记-整理算法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parallel-Old-XX-UserParallerOldGC，标记-整理算法"><span class="toc-number">9.2.</span> <span class="toc-text">Parallel Old(-XX:+UserParallerOldGC，标记-整理算法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMS收集器-XX-UseConcMarkSweepGC，标记-清除算法"><span class="toc-number">9.3.</span> <span class="toc-text">CMS收集器(-XX:+UseConcMarkSweepGC，标记-清除算法)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G1（Garbage-First）收集器（-XX-UseG1GC，复制-标记-整理算法）"><span class="toc-number">10.</span> <span class="toc-text">G1（Garbage First）收集器（-XX:+UseG1GC，复制+标记-整理算法）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于G1收集器参看下列帖子教程"><span class="toc-number">10.1.</span> <span class="toc-text">关于G1收集器参看下列帖子教程</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

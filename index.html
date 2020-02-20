@@ -183,6 +183,185 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SpringBoot踩坑记录：scheduling定时任务无法执行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/20/SpringBoot%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%9Ascheduling%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E6%97%A0%E6%B3%95%E6%89%A7%E8%A1%8C/">SpringBoot踩坑记录：scheduling定时任务无法执行</a>
+    </h1>
+  
+
+		
+		<!--显示阅读次数-->
+		
+		
+        
+        <a href="/2020/02/20/SpringBoot%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%9Ascheduling%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E6%97%A0%E6%B3%95%E6%89%A7%E8%A1%8C/" class="archive-article-date">
+  	<time datetime="2020-02-20T08:11:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="原因1：SpringBoot管理的bean对象的懒加载机制"><a href="#原因1：SpringBoot管理的bean对象的懒加载机制" class="headerlink" title="原因1：SpringBoot管理的bean对象的懒加载机制"></a>原因1：SpringBoot管理的bean对象的懒加载机制</h2><p>我们知道，为了避免程序占据太多不必要的内存空间，SpringBoot对管理的Bean对象采取了懒加载机制<br><code>具体到代码上来讲，Spring的Ioc容器在通过反射创建对象时没有通过Class.forname()方法来加载(这样获取的class对象是已经完成了初始化的)，而是采取ClassLoader.loadClass()方法(只完成了加载过程，没有进行链接、初始化)。具体可见之前写的笔记类加载机制</code><br>那么我们不难知道，如果我们把定时任务方法统一写到一个类中，而这个类中的方法并没有被显式调用过，这个类就不会发生初始化，自然其中的方法也就不会正常执行。<br>我们只需要在定时任务类上加上注解@Lazy(false)就可以取消懒加载。</p>
+        
+      
+	  
+	  
+		
+	
+	  <div class="declare" hidden="hidden"></div>
+	
+	
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">SpringBoot</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">定时任务</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/20/SpringBoot%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%9Ascheduling%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E6%97%A0%E6%B3%95%E6%89%A7%E8%A1%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-JAVA笔记：垃圾回收机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/20/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">JAVA笔记：垃圾回收机制</a>
+    </h1>
+  
+
+		
+		<!--显示阅读次数-->
+		
+		
+        
+        <a href="/2020/02/20/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2020-02-20T06:14:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="对象被判定为垃圾的标准"><a href="#对象被判定为垃圾的标准" class="headerlink" title="对象被判定为垃圾的标准"></a>对象被判定为垃圾的标准</h2><p>没有被其他对象所引用时。</p>
+<h2 id="判定垃圾的算法"><a href="#判定垃圾的算法" class="headerlink" title="判定垃圾的算法"></a>判定垃圾的算法</h2><p>1.引用计数算法<br>2.可达性分析算法</p>
+        
+      
+	  
+	  
+		
+	
+	  <div class="declare" hidden="hidden"></div>
+	
+	
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Java笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">垃圾回收</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/20/JAVA%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-转载：理解IOC、DI" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -388,7 +567,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、TCP报文头"><a href="#一、TCP报文头" class="headerlink" title="一、TCP报文头"></a>一、TCP报文头</h2><p>首先我们知道TCP协议是<strong>TCP/IP协议集</strong>中<strong>传输层</strong>的协议，是一种<strong>面向连接</strong>的，基于字节流的通信协议。<br>数据在网络中传输时，自上而下进行封装数据时，每一层都会给数据封装一个报文头，而在传输层使用TCP协议就会给数据封装一个TCP报文头，以下是TCP报文头的内容：<br><img src="http://joezeo.cn-bj.ufileos.com/91b15ed1-c6ac-4ef8-93db-8f968aabddac.png" alt=""></p>
+        <h2 id="一、TCP报文头"><a href="#一、TCP报文头" class="headerlink" title="一、TCP报文头"></a>一、TCP报文头</h2><p>首先我们知道TCP协议是<strong>TCP/IP协议集</strong>中<strong>传输层</strong>的协议，是一种<strong>面向连接</strong>的，基于字节流的通信协议。<br>数据在网络中传输时，自上而下进行封装数据时，每一层都会给数据封装一个报文头，而在传输层使用TCP协议就会给数据封装一个TCP报文头，以下是TCP报文头的内容：<br><img src="http://joezeo.cn-bj.ufileos.com/2d3abc84-e7a5-4708-9027-effb256de745.png" alt=""></p>
         
       
 	  
@@ -908,200 +1087,9 @@
 
 
   
-    <article id="post-Springboot学习笔记：初识Springboot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/15/Springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%88%9D%E8%AF%86Springboot/">SpringBoot学习笔记：初识SpringBoot</a>
-    </h1>
-  
-
-		
-		<!--显示阅读次数-->
-		
-		
-        
-        <a href="/2020/01/15/Springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%88%9D%E8%AF%86Springboot/" class="archive-article-date">
-  	<time datetime="2020-01-15T06:25:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--PANGU_DISABLE-->
-<h2 id="Springboot"><a href="#Springboot" class="headerlink" title="Springboot"></a>Springboot</h2><blockquote>
-<p>在学习SSM(H)的过程中，需要做大量的配置工作，其实很多配置行为本身只是手段，并不是目的。 基于这个考虑，把该简化的简化，该省略的省略，开发人员只用关心提供业务功能就行了，这就是 SpringBoot。</p>
-</blockquote>
-<blockquote>
-<p>换言之，SpringBoot可以简单地看成简化了的、按照约定开发的SSM(H)</p>
-</blockquote>
-<h2 id="Springboot入门"><a href="#Springboot入门" class="headerlink" title="Springboot入门"></a>Springboot入门</h2><h3 id="使用IDEA创建第一个Springboot-web程序"><a href="#使用IDEA创建第一个Springboot-web程序" class="headerlink" title="使用IDEA创建第一个Springboot web程序"></a>使用IDEA创建第一个Springboot web程序</h3>
-        
-      
-	  
-	  
-		
-	
-	  <div class="declare" hidden="hidden"></div>
-	
-	
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">SpringBoot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/15/Springboot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%88%9D%E8%AF%86Springboot/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Activiti5学习笔记：基本使用-md" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/15/Activiti5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-md/">Activiti5学习笔记：基本使用</a>
-    </h1>
-  
-
-		
-		<!--显示阅读次数-->
-		
-		
-        
-        <a href="/2020/01/15/Activiti5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-md/" class="archive-article-date">
-  	<time datetime="2020-01-15T03:08:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!--PANGU_DISABLE-->
-<h2 id="1-框架介绍"><a href="#1-框架介绍" class="headerlink" title="1. 框架介绍"></a>1. 框架介绍</h2><blockquote>
-<p>Activiti5是由Alfresco软件在2010年5月17日发布的业务流程管理（BPM）框架，它是覆盖了业务流程管理、工作流、服务协作等领域的一个开源的、灵活的、易扩展的可执行流程语言框架。Activiti基于Apache许可的开源BPM平台，创始人Tom Baeyens是JBoss jBPM的项目架构师，它特色是提供了eclipse插件，开发人员可以通过插件直接绘画出业务流程图。   </p>
-</blockquote>
-<blockquote>
-<p>Activiti框架前身是JBPM4，继承了JBPM4所有优点并将其发扬光大。在持久层框架的选择上，Activiti使用了MyBatis，而JBPM使用的Hibernate</p>
-</blockquote>
-        
-      
-	  
-	  
-		
-	
-	  <div class="declare" hidden="hidden"></div>
-	
-	
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">Activiti5</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/15/Activiti5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8-md/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
